@@ -2,7 +2,7 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-@mixin highlight-color($color: $brand-yellow) {
+@mixin highlight-color($color: $highlight-bg) {
   -webkit-tap-highlight-color: $color;
   -moz-tap-highlight-color: $color;
   -ms-tap-highlight-color: $color;
@@ -11,8 +11,8 @@
 }
 
 @mixin backdrop {
-  @include background(linear-gradient(white, white 85%, $gray-1));
-  background-color: white;
+  @include background(linear-gradient($slide-bg-one, $slide-bg-one 85%));
+  background-color: $slide-bg-one;
 }
 
 
@@ -20,8 +20,8 @@
  * Theme Styles
  */
 ::selection {
-  color: white;
-  background-color: $brand-yellow;
+  color: $highlight-color;
+  background-color: $highlight-bg;
   @include text-shadow(none);
 }
 
@@ -63,7 +63,7 @@ slides > slide {
   display: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 26px;
-  color: $gray-3;
+  color: $body-color;
   //@include background(linear-gradient(white, white 85%, $gray-1));
   //background-color: white;
   width: $slide-width;
@@ -125,7 +125,7 @@ slides > slide {
   }
 
   &.dark {
-    background: $gray-4 !important;
+    background: $slide-bg-two !important;
   }
 
   &:not(.nobackground) {
@@ -138,10 +138,10 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/google_developers_icon_128.png) no-repeat 0 50%;
-      @include background-size($brand-small-icon-size $brand-small-icon-size);
-      padding-left: $brand-small-icon-size + 10;
-      height: $brand-small-icon-size;
+      background: $small-icon no-repeat 0 50%;
+      @include background-size($small-icon-size $small-icon-size);
+      padding-left: $small-icon-size + 10;
+      height: $small-icon-size;
       line-height: 1.9;
     }
     &:after {
@@ -264,7 +264,7 @@ b {
 }
 
 a {
-  color: $brand-blue-secondary2;
+  color: $link-color;
   text-decoration: none;
   border-bottom: 1px solid rgba(42, 124, 223, 0.5);
 
@@ -281,7 +281,7 @@ h2 {
   font-size: 45px;
   line-height: 45px;
   letter-spacing: -2px;
-  color: $gray-4;
+  color: $headline-color;
 }
 
 h3 {
@@ -289,7 +289,7 @@ h3 {
   letter-spacing: -1px;
   line-height: 2;
   font-weight: inherit;
-  color: $gray-3;
+  color: $subheadline-color;
 }
 
 ul {
@@ -342,7 +342,7 @@ pre {
   letter-spacing: -1px;
   margin-bottom: 20px;
   width: 106%;
-  background-color: $gray-1;
+  background-color: $prettyprint-bg;
   left: -$slide-left-right-padding;
   position: relative;
   @include box-sizing(border-box);
@@ -350,19 +350,15 @@ pre {
 
   &[data-lang]:after {
     content: attr(data-lang);
-    background-color: $gray-2;
+    background-color: $prettyprint-lang-bg;
     right: 0;
     top: 0;
     position: absolute;
     font-size: 16pt;
-    color: white;
+    color: $prettyprint-lang-color;
     padding: 2px 25px;
     text-transform: uppercase;
   }
-}
-
-pre[data-lang="go"] {
-  color: #333;
 }
 
 code {
@@ -375,7 +371,7 @@ iframe {
   width: 100%;
   height: $slide-height - ($slide-top-bottom-padding * 2) - ($article-content-top-padding * 2);
   background: white;
-  border: 1px solid $gray-1;
+  border: 1px solid $iframe-border-color;
   @include box-sizing(border-box);
 }
 
@@ -385,77 +381,29 @@ dt {
 
 button {
   display: inline-block;
-  @include background(linear-gradient(#F9F9F9 40%, #E3E3E3 70%));
-  border: 1px solid $gray-2;
+  @include background(linear-gradient($button-bg-top 40%, $button-bg-bottom 70%));
+  border: 1px solid $button-border;
   @include border-radius(3px);
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
   @include user-select(none);
   cursor: pointer;
-  @include text-shadow(1px 1px #fff);
+  @include text-shadow(1px 1px $button-text-shadow);
+  color: $button-color;
   font-size: 10pt;
 }
 
 button:not(:disabled):hover {
-  border-color: $gray-4;
+  border-color: $button-active-border;
 }
 
 button:not(:disabled):active {
-  @include background(linear-gradient(#E3E3E3 40%, #F9F9F9 70%));
+  @include background(linear-gradient($button-active-bg-top 40%, $button-active-bg-bottom 70%));
 }
 
 :disabled {
-  color: $gray-2;
-}
-
-.blue {
-  color: $brand-blue;
-}
-.blue2 {
-  color: $brand-blue-secondary;
-}
-.blue3 {
-  color: $brand-blue-secondary2;
-}
-.yellow {
-  color: $brand-yellow;
-}
-.yellow2 {
-  color: $brand-yellow-secondary;
-}
-.yellow3 {
-  color: $brand-yellow-secondary2;
-}
-.green {
-  color: $brand-green;
-}
-.green2 {
-  color: $brand-green-secondary;
-}
-.green3 {
-  color: $brand-green-secondary2;
-}
-.red {
-  color: $brand-red;
-}
-.red2 {
-  color: $brand-red-secondary;
-}
-.red3 {
-  color: $brand-red-secondary2;
-}
-.gray {
-  color: $gray-1;
-}
-.gray2 {
-  color: $gray-2;
-}
-.gray3 {
-  color: $gray-3;
-}
-.gray4 {
-  color: $gray-4;
+  color: $disabled-color;
 }
 
 .white {
@@ -474,21 +422,21 @@ table {
   border-collapse: -moz-initial;
   border-collapse: initial;
   border-spacing: 2px;
-  border-bottom: 1px solid $gray-3;
+  border-bottom: 1px solid $table-border;
 
   tr > td:first-child, th {
     font-weight: 600;
-    color: $gray-4;
+    color: $table-head-color;
   }
 
   tr:nth-child(odd) {
-    background-color: $gray-1;
+    background-color: $table-odd-row-bg;
   }
 
   th {
-    color: white;
+    color: $table-header-color;
     font-size: 18px;
-    @include background(linear-gradient(top, $brand-blue 40%, $brand-blue-secondary2 80%) no-repeat);
+    @include background(linear-gradient(top, $table-head-bg-top 40%, $table-head-bg-bottom 80%) no-repeat);
   }
 
   td, th {
@@ -497,13 +445,13 @@ table {
   }
 
   td.highlight {
-    color: $gray-4;
-    @include background(linear-gradient(top, $brand-yellow 40%, $brand-yellow-secondary2 80%) no-repeat);
+    color: $table-highlight-color;
+    @include background(linear-gradient(top, $table-highlight-bg-top 40%, $table-highlight-bg-bottom 80%) no-repeat);
   }
 
   &.rows {
     border-bottom: none;
-    border-right: 1px solid $gray-3;
+    border-right: 1px solid $table-right-border;
   }
 }
 
@@ -591,32 +539,32 @@ article.smaller {
 
 .prettyprint .str, /* string content */
 .prettyprint .atv { /* a markup attribute value */
-  color: $brand-green-secondary2; //rgb(0, 138, 53);
+  color: $prettyprint-string;
 }
 .prettyprint .kwd, /* a keyword */
 .prettyprint .tag { /* a markup tag name */
-  color: rgb(0, 102, 204);
+  color: $prettyprint-keyword;
 }
 .prettyprint .com { /* a comment */
-  color: $gray-3; //rgb(127, 127, 127);
+  color: $prettyprint-comment;
   font-style: italic;
 }
 .prettyprint .lit { /* a literal value */
-  color: rgb(127, 0, 0);
+  color: $prettyprint-literal;
 }
 .prettyprint .pun, /* punctuation, lisp open bracket, lisp close bracket */
 .prettyprint .opn,
 .prettyprint .clo {
-  color: $gray-4; //rgb(127, 127, 127);
+  color: $prettyprint-punctuation;
 }
 .prettyprint .typ, /* a type name */
 .prettyprint .atn, /* a markup attribute name */
 .prettyprint .dec,
 .prettyprint .var { /* a declaration; a variable name */
-  color: $brand-red-secondary2; //rgb(127, 0, 127);
+  color: $prettyprint-declaration;
 }
 .prettyprint .pln {
-  color: $gray-4;
+  color: $prettyprint-plaintext;
 }
 
 .note {
@@ -638,9 +586,9 @@ article.smaller {
   @include transform(translateY($slide-height / 2));@include transition(all 0.4s ease-in-out);
 
   > section {
-    background: #fff;
+    background: $speaker-bg;
     @include border-radius($slide-border-radius);
-    @include box-shadow(0 0 10px $gray-3);
+    @include box-shadow(0 0 10px $speaker-shadow);
     width: 60%;
     padding: 2em;
   }
@@ -672,13 +620,13 @@ article.smaller {
 
       &:not(.backdrop) {
         @include transform(scale(0.6) translate3d(0.5em, 0.5em, 0));
-        @include box-shadow(0 0 10px $gray-3);
+        @include box-shadow(0 0 10px $slide-shadow);
       }
 
       &.backdrop {
         //@include background(linear-gradient($gray-1, white 30%, white 60%, $gray-1));
-        @include background-image(radial-gradient(50% 50%, #b1dfff 0%,
-                                                  $brand-blue 600px));
+        @include background-image(radial-gradient(50% 50%, $backdrop-bg-radial 0%,
+                                                  $backdrop-bg 600px));
       }
 
       &.next {
@@ -694,16 +642,16 @@ article.smaller {
     .note {
       width: 109%;
       height: $slide-height / 2 - 90;
-      background: $gray-1;
+      background: $speaker-bg;
       padding: 0;
 
-      @include box-shadow(0 0 10px $gray-3);
+      @include box-shadow(0 0 10px $speaker-shadow);
 
       @include transform(translate3d(250px, $slide-height + 100, 0) scale(1.5));
       @include transition(opacity 400ms ease-in-out);
 
       > section {
-        background: #fff;
+        background: $speaker-bg;
         @include border-radius($slide-border-radius);
         height: 100%;
         width: 100%;
@@ -724,7 +672,7 @@ article.smaller {
 
 .source {
   font-size: 14px;
-  color: $gray-2;
+  color: $citation-color;
   position: absolute;
   bottom: $slide-top-bottom-padding + 30px;
   left: $slide-left-right-padding;
@@ -805,11 +753,11 @@ article.smaller {
   padding: $slide-left-right-padding $slide-left-right-padding * 2;
 
   h2 {
-    color: $gray-1;
+    color: $segue-subheadline-color;
     font-size: 60px;
   }
   h3 {
-    color: $gray-1;
+    color: $segue-subsubheadline-color;
     line-height: 2.8;
   }
   hgroup {
@@ -819,8 +767,8 @@ article.smaller {
 }
 
 .thank-you-slide {
-  background: $brand-blue !important;
-  color: white;
+  background: $thankyou-bg !important;
+  color: $thankyou-color;
 
   h2 {
     font-size: 60px;
@@ -847,7 +795,7 @@ aside.logobar {
   left: -1px;
   top: 125px;
   @include border-radius(0 10px 10px 0);
-  @include background(linear-gradient(left, $gray-1, $gray-1) no-repeat);
+  @include background(linear-gradient(left, $logobar-bg-color, $logobar-bg-color) no-repeat);
   @include background-size(0% 100%);
   @include transition(all 0.5s ease-out 0.5s); /* Better to transition only on background-size, but not sure how to do that with the mixin. */
 
@@ -887,18 +835,18 @@ aside.logobar {
       font-size: 65px;
       line-height: 1.4;
       letter-spacing: -3px;
-      color: $gray-4;
+      color: $title-headline-color;
     }
 
     h2 {
       font-size: 34px;
-      color: $gray-2;
+      color: $title-subheadline-color;
       font-weight: inherit;
     }
 
     p {
       font-size: 20px;
-      color: $gray-3;
+      color: $title-color;
       line-height: 1.3;
       margin-top: 2em;
     }
@@ -906,7 +854,7 @@ aside.logobar {
 }
 
 .quote {
-  color: $gray-1;
+  color: $quote-color;
 
   .author {
     font-size: 24px;
@@ -983,7 +931,7 @@ aside.logobar {
       margin-top: 0 !important;
       margin-left: 0 !important;
       opacity: 1 !important;
-      color: #555;
+      color: $slide-print-color;
 
       &.far-past,
       &.past,

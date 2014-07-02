@@ -1,0 +1,6 @@
+// put your overrides first
+$logobar-bg-color: #515151;
+$small-icon: image-url("open_web_camp_logo_30.png");
+
+// then import the default styles
+@import "default"

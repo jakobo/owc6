@@ -1,38 +1,193 @@
-$social-tags: '';
-$brand-small-icon-size: 30px;
+/**
+ * ============================================================================
+ * BRANDING ===================================================================
+ * ============================================================================
+**/
 
-/* height and width of the conference logo (max 128px high) */
-$logobar-logo-width: 89px;
-$logobar-logo-height: 128px;
+/**
+ * Social Tags
+ * Anything here will be tacked onto the layout for hashtag purposes
+ * For example "#omgwtf" will show up and give everyone a tag for tweeting
+**/
+$social-tags: '' !default;
 
-$gray-1: #e6e6e6;
-$gray-2: #a9a9a9;
-$gray-3: #797979;
-$gray-4: #515151;
+$small-icon: '' !default;
+$small-icon-size: 30px !default;
 
-$brand-blue: rgb(67, 135, 253);
-$brand-blue-secondary: #3c8ef3;
-$brand-blue-secondary2: #2a7cdf;
+/**
+ * ============================================================================
+ * SLIDE TYPES ================================================================
+ * ============================================================================
+**/
 
-$brand-red: rgb(244, 74, 63);
-$brand-red-secondary: #e0543e;
-$brand-red-secondary2: #d94d3a;
+/**
+ * Slide Defaults
+ * For most slides, these are the expected colors
+**/
+$slide-bg-one: #ffffff !default;
+$slide-bg-two: #515151 !default;
+$slide-shadow: #797979 !default;
+$backdrop-bg: rgb(67, 135, 253) !default;
 
-$brand-yellow: rgb(255, 209, 77);
-$brand-yellow-secondary: #f9cc46;
-$brand-yellow-secondary2: #f6c000;
+$body-color: #797979 !default;
+$headline-color: #515151 !default;
+$subheadline-color: #a9a9a9 !default;
 
-$brand-green: rgb(13, 168, 97);
-$brand-green-secondary: #00a86d;
-$brand-green-secondary2: #009f5d;
+$quote-color: #e6e6e6 !default;
+$link-color: #3c8ef3 !default;
+$citation-color: #a9a9a9 !default;
 
-$slide-width: 900px;
-$slide-height: 700px;
-$slide-width-widescreen: 1100px;
-$slide-top-bottom-padding: 40px;
-$slide-left-right-padding: 60px;
-$slide-border-radius: 5px;
+/**
+ * Title Slide
+ * Done on your slide's color1 background, this sets the additional colors
+**/
+$title-headline-color: #515151 !default;
+$title-subheadline-color: #a9a9a9 !default;
+$title-color: #797979 !default;
 
-$slide-tap-area-width: 100px;
+/**
+ * Backdrop Slides
+ * This drops the slide's background in favor for the color sitting
+ * behind it. This is often a pair of contrast colors to your main slide BG.
+ * It uses a radial effect to give the slide texture.
+**/
+$backdrop-bg-color: #e6e6e6 !default;
+$backdrop-bg-radial: #b1dfff !default;
 
-$article-content-top-padding: 45px;
+/**
+ * Segue Slides
+ * Used to transition from one part of the presentation
+ * to another.
+**/
+$segue-headline-color: #e6e6e6 !default;
+$segue-subheadline-color: #e6e6e6 !default;
+$segue-subsubheadline-color: #e6e6e6 !default;
+
+/**
+ * Thankyou Slide
+ * Used often at the end of the presentation, restates contact info
+ * Can be given a different color scheme than a standard Segue slide
+**/
+$thankyou-bg: red !default;
+$thankyou-color: white !default;
+
+/**
+ * ============================================================================
+ * SLIDE ELEMENTS =============================================================
+ * ============================================================================
+**/
+
+/**
+ * Logobar: The animating-in conference / topic / personal logo
+ * height and width of the logobar logo (max 128px high)
+ * This is used on title and seque slides, and is given an
+ * animation in. If you omit the logobar element, these
+ * styles will not apply.
+**/
+$logobar-logo-width: 89px !default;
+$logobar-logo-height: 128px !default;
+$logobar-bg-color: red !default;
+
+/**
+ * Iframes
+ * For remote content on the fly...
+**/
+$iframe-border-color: #e6e6e6 !default;
+
+/**
+ * Buttons
+ * What better way to launch a demo?
+**/
+$button-bg-top: #f9f9f9 !default;
+$button-bg-bottom: #e3e3e3 !default;
+$button-border: #a9a9a9 !default;
+$button-active-bg-top: #e3e3e3 !default;
+$button-active-bg-bottom: #f9f9f9 !default;
+$button-active-border: #515151 !default;
+$button-text-shadow: #fff !default;
+$button-color: #515151 !default;
+
+/**
+ * Tabular Data
+ * You need to adjust these for however you are managing tabular data
+ **/
+$table-border: #797979 !default;
+$table-right-border: #797979 !default;
+
+$table-head-color: #515151 !default;
+$table-head-bg-top: rgb(67, 135, 253) !default;
+$table-head-bg-bottom: #3c8ef3 !default;
+$table-header-color: white !default;
+
+$table-highlight-bg-top: rgb(255, 209, 77) !default;
+$table-highlight-bg-bottom: #f9cc46 !default;
+$table-highlight-color: white !default;
+
+$table-odd-row-bg: #e6e6e6 !default;
+
+/**
+ * Code
+ * Code is rendered using prettyprint. These are the styles for that
+**/
+$prettyprint-bg: #e6e6e6 !default;
+$prettyprint-lang-bg: #a9a9a9 !default;
+$prettyprint-lang-color: white !default;
+$prettyprint-string: rgb(0, 138, 53) !default;
+$prettyprint-keyword: rgb(0, 102, 204) !default;
+$prettyprint-comment: rgb(127, 127, 127) !default;
+$prettyprint-literal: rgb(127, 0, 0) !default;
+$prettyprint-punctuation: rgb(127, 127, 127) !default;
+$prettyprint-declaration: rgb(127, 0, 127) !default;
+$prettyprint-plaintext: #515151 !default;
+
+/**
+ * ============================================================================
+ * GLOBAL CONTROLS ============================================================
+ * ============================================================================
+**/
+
+/**
+ * Highlights
+ * Controls the next slide / expose highlighting
+ */
+$highlight-bg: #f9cc46 !default;
+$highlight-color: white !default;
+
+/**
+ * Print color
+**/
+$slide-print-color: #555 !default;
+
+/**
+ * Disabled
+ * All disabled elements will be colored this way
+ * in addition to their HTML disabled properties
+**/
+$disabled-color: #a9a9a9 !default;
+
+/**
+ * Speaker Note Settings
+ * The slide settings for fonts/colors inherit from your master <slide> object
+**/
+$speaker-bg: #fff !default;
+$speaker-shadow: #797979 !default;
+
+/**
+ * ============================================================================
+ * LAYOUT =====================================================================
+ * ============================================================================
+**/
+
+/**
+ * Slide Settings
+ * Width, height, etc all controlled here. You can also change your tap
+ * target sizes as needed
+**/
+$slide-width: 900px !default;
+$slide-height: 700px !default;
+$slide-width-widescreen: 1100px !default;
+$slide-top-bottom-padding: 40px !default;
+$slide-left-right-padding: 60px !default;
+$slide-border-radius: 5px !default;
+$slide-tap-area-width: 100px !default;
+$article-content-top-padding: 45px !default;
