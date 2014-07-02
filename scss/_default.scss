@@ -578,6 +578,7 @@ article.smaller {
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
+  overflow-y: auto; // allow speaker notes to scroll vertically
   @include flexbox;
   @include flex-center-center;
   @include border-radius($slide-border-radius);
@@ -591,6 +592,10 @@ article.smaller {
     @include box-shadow(0 0 10px $speaker-shadow);
     width: 60%;
     padding: 2em;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 }
 

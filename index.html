@@ -21,7 +21,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--This one seems to work all the time, but really small on ipad-->
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" media="all" href="theme/css/main.css">
+  <link rel="stylesheet" media="all" href="css/main.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -44,39 +44,53 @@ URL: https://code.google.com/p/io-2012-slides
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
     </hgroup>
+    <aside class="note">
+      <section>
+        <p>Title: A Pragmatic Guide to Web Components</p>
+        <p>Overview: Web Components. The moment is upon us where we can encapsulate
+        large amounts of code behind a single semantic tag. Get a crash course on
+        what Web Components are, how the current batch of JavaScript frameworks
+        address the technology, and some good anti-patterns to avoid when building
+        your own Web Components.</p>
+        <ul>
+          <li>Who Am I</li>
+          <li>What are Web Components</li>
+          <li>CanHas / Support</li>
+          <li>Web Components Today
+            <ul>
+              <li>Polymer</li>
+              <li>X-Tags by Mozilla</li>
+              <li>Ember</li>
+              <li>Angular</li>
+            </ul>
+          </li>
+          <li>Web Componentize Everything!
+            <ul>
+              <li>Caution!
+                <ul>
+                  <li>Bloat &amp; Macromedia Flash</li>
+                  <li>Bower / Package Systems</li>
+                </ul>
+              </li>
+              <li>The Good
+                <ul>
+                  <li>Local Ecosystems</li>
+                  <li>Missing UI / Fixing Select</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>The Future
+            <ul>
+              <li>Web Component Polyfill</li>
+              <li>The "bower of web components"</li>
+              <li>Going to Disneyland!</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </aside>
   </slide>
-
-<!--
-Title: A Pragmatic Guide to Web Components
-
-Overview: Web Components. The moment is upon us where we can encapsulate
-large amounts of code behind a single semantic tag. Get a crash course on
-what Web Components are, how the current batch of JavaScript frameworks
-address the technology, and some good anti-patterns to avoid when building
-your own Web Components.
-
-- Who Am I
-- What Are Web Components
-- CanHas / Support
-- Web Components Today
-  - Polymer
-  - X-Tags
-  - Ember
-  - Angular
-- Web Component Everything, Right?
-  - Caution!
-    - Bloat & Flash
-    - Bower (or npm, or any package system)
-  - The Good!
-    - Local Ecosystems
-    - Missing UI Concepts / Universal Feel
-- The Future
-  - Web Component Polyfills become standard
-    - Code reduction in frameworks
-  - Someone makes the "bower of web components"
-  - We grapple with the problems
-  - We get to a happy place
--->
 
   <slide>
     <hgroup></hgroup>
