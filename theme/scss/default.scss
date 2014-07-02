@@ -104,7 +104,7 @@ slides > slide {
       opacity: 1;
     }
 
-    .gdbar {
+    .logobar {
       @include background-size(100% 100%);
     }
   }
@@ -799,12 +799,7 @@ article.smaller {
 }
 
 /* ===== SLIDE CONTENT ===== */
-.logoslide {
-  img {
-    width: 383px;
-    height: 92px;
-  }
-}
+.logoslide {}
 
 .segue {
   padding: $slide-left-right-padding $slide-left-right-padding * 2;
@@ -845,9 +840,9 @@ article.smaller {
   }
 }
 
-aside.gdbar {
-  height: 97px;
-  width: 215px;
+aside.logobar {
+  height: 12px + $logobar-logo-height;
+  width: 130px + $logobar-logo-width;
   position: absolute;
   left: -1px;
   top: 125px;
@@ -875,8 +870,8 @@ aside.gdbar {
   }
 
   img {
-    width: 85px;
-    height: 85px;
+    width: $logobar-logo-width;
+    height: $logobar-logo-height;
     position: absolute;
     right: 0;
     margin: 8px 15px;
@@ -939,7 +934,7 @@ aside.gdbar {
       display: none !important;
     }
   }
-  
+
   slides {
     slide {
       &.backdrop {
