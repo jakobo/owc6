@@ -1,5 +1,15 @@
 Slides for Open Web Camp 2014
 
 # Develop
-See: index.html  
-Use: ./serve.sh
+See: index.html, slide_config.js 
+
+# Build
+```
+npm install
+gulp build
+```
+
+# Serve
+```
+gulp serve
+```

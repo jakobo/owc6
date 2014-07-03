@@ -1,8 +1,13 @@
 /**
  * @authors Luke Mahe
  * @authors Eric Bidelman
+ * @authors Jakob Heuser
  * @fileoverview TODO
  */
+
+var SlideController = require('./slide-controller');
+var Hammer = require('hammerjs');
+
 document.cancelFullScreen = document.webkitCancelFullScreen ||
                             document.mozCancelFullScreen;
 
@@ -29,12 +34,6 @@ function SlideDeck(el) {
  */
 SlideDeck.prototype.SLIDE_CLASSES_ = [
   'far-past', 'past', 'current', 'next', 'far-next'];
-
-/**
- * @const
- * @private
- */
-SlideDeck.prototype.CSS_DIR_ = 'theme/css/';
 
 /**
  * @private
@@ -128,11 +127,11 @@ SlideDeck.prototype.addEventListeners_ = function() {
   //   'msTransition': 'MSTransitionEnd',
   //   'transition': 'transitionend'
   // };
-  // 
+  //
   // // Find the correct transitionEnd vendor prefix.
   // window.transEndEventName = transEndEventNames[
   //     Modernizr.prefixed('transition')];
-  // 
+  //
   // // When slides are done transitioning, kickoff loading iframes.
   // // Note: we're only looking at a single transition (on the slide). This
   // // doesn't include autobuilds the slides may have. Also, if the slide
@@ -571,7 +570,7 @@ SlideDeck.prototype.updateSlides_ = function(opt_dontPush) {
   this.triggerSlideEvent('slideenter', curSlide);
 
 // window.setTimeout(this.disableSlideFrames_.bind(this, curSlide - 2), 301);
-// 
+//
 // this.enableSlideFrames_(curSlide - 1); // Previous slide.
 // this.enableSlideFrames_(curSlide + 1); // Current slide.
 // this.enableSlideFrames_(curSlide + 2); // Next slide.
@@ -768,16 +767,4 @@ SlideDeck.prototype.loadAnalytics_ = function() {
   })();
 };
 
-
-// Polyfill missing APIs (if we need to), then create the slide deck.
-// iOS < 5 needs classList, dataset, and window.matchMedia. Modernizr contains
-// the last one.
-(function() {
-  Modernizr.load({
-    test: !!document.body.classList && !!document.body.dataset,
-    nope: ['js/polyfills/classList.min.js', 'js/polyfills/dataset.min.js'],
-    complete: function() {
-      window.slidedeck = new SlideDeck();
-    }
-  });
-})();
+module.exports = SlideDeck;

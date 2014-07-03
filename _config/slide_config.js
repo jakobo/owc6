@@ -1,4 +1,4 @@
-var SLIDE_CONFIG = {
+module.exports = {
   // Slide settings
   settings: {
     title: 'A Pragmatic Approach<br>to Web Components',
@@ -17,7 +17,6 @@ var SLIDE_CONFIG = {
       'Open Sans:regular,semibold,italic,italicsemibold',
       'Source Code Pro'
     ],
-    //theme: ['mytheme'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
   },
 
   // Author information
@@ -28,12 +27,5 @@ var SLIDE_CONFIG = {
     twitter: '@jakobo',
     www: 'http://felocity.com',
     github: 'http://github.com/jakobo'
-  }/*, {
-    name: 'Second Name',
-    company: 'Job Title, Google',
-    gplus: 'http://plus.google.com/1234567890',
-    twitter: '@yourhandle',
-    www: 'http://www.you.com',
-    github: 'http://github.com/you'
-  }*/]
+  }]
 };

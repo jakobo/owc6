@@ -1,22 +1,20 @@
 # Require any additional compass plugins here.
 
-# Set this to the root of your project when deployed:
+# Compass configuration
 http_path = "/"
 css_dir = "css"
-sass_dir = "scss"
+sass_dir = "_scss"
 images_dir = "images"
 generated_images_dir = "images-gen"
-javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :compressed #:expanded or :nested or :compact or :compressed
 
-# To enable relative paths to assets via compass helper functions. Uncomment:
+# To enable relative paths to assets via compass helper functions.
 relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
-
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

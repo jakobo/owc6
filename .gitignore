@@ -7,9 +7,8 @@
 *.o
 *.so
 *.pyc
-*.min.css
-#*.min.js
-.sass-cache/*
+.sass-cache/
+node_modules/
 
 # Packages #
 ############

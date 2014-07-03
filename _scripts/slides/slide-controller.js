@@ -1,4 +1,9 @@
-(function(window) {
+/**
+ * @authors Luke Mahe
+ * @authors Eric Bidelman
+ * @authors Jakob Heuser
+ * @fileoverview TODO
+ */
 
 var ORIGIN_ = location.protocol + '//' + location.host;
 
@@ -103,7 +108,4 @@ SlideController.prototype.sendMsg = function(msg) {
   }
 };
 
-window.SlideController = SlideController;
-
-})(window);
-
+module.exports = SlideController;
