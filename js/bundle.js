@@ -474,6 +474,10 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
       e.preventDefault();
       break;
 
+    case 66: // B: Toggle black overlay
+      document.body.classList.toggle('overlay');
+      break;
+
     case 72: // H: Toggle code highlighting
       document.body.classList.toggle('highlight-code');
       break;
