@@ -4,11 +4,11 @@ I scream, you scream, we all scream for source code.
 <!--
 Based on the Google IO 2012/2013 HTML5 Slide Template
 Heavily modified to support better custom themes using pure
-compass.
+compass. And gulp. Always with the gulps.
 
 Authors: Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
-URL: https://code.google.com/p/io-2012-slides
+         Jakob Heuser <jheuser@linkedin.com>
 -->
 <!DOCTYPE html>
 <html>
@@ -21,10 +21,9 @@ URL: https://code.google.com/p/io-2012-slides
   <!--This one seems to work all the time, but really small on ipad-->
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" media="all" href="css/main.css">
-  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <link rel="stylesheet" media="all" href="css/main.css" data-noprefix>
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="css/phone.css" data-noprefix>
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
-  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
 </head>
 <body style="opacity: 0">
 
@@ -453,18 +452,8 @@ function helloWorld(world) {
 
 </slides>
 
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-15075481-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-
+<script src="js/bundle.js"></script>
+<!-- Try a chrome frame on antiquated IE lt 9 (10 doesn't have these) -->
 <!--[if IE]>
   <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
   <script>CFInstall.check({mode: 'overlay'});</script>

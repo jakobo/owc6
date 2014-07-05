@@ -127,18 +127,26 @@ $table-odd-row-bg: #e6e6e6 !default;
 
 /**
  * Code
- * Code is rendered using prettyprint. These are the styles for that
+ * Code is rendered using Prism. These are the styles for that
 **/
-$prettyprint-bg: #e6e6e6 !default;
-$prettyprint-lang-bg: #a9a9a9 !default;
-$prettyprint-lang-color: white !default;
-$prettyprint-string: rgb(0, 138, 53) !default;
-$prettyprint-keyword: rgb(0, 102, 204) !default;
-$prettyprint-comment: rgb(127, 127, 127) !default;
-$prettyprint-literal: rgb(127, 0, 0) !default;
-$prettyprint-punctuation: rgb(127, 127, 127) !default;
-$prettyprint-declaration: rgb(127, 0, 127) !default;
-$prettyprint-plaintext: #515151 !default;
+$prism-color: #515151 !default;
+$prism-shadow: #ffffff !default;
+$prism-bg: #e6e6e6 !default;
+$prism-inline-bg: #e6e6e6 !default;
+$prism-comment: rgb(127, 127, 127) !default;
+$prism-punctuation: rgb(127, 127, 127) !default;
+$prism-property: rgb(127, 0, 127) !default;
+$prism-string: rgb(0, 138, 53) !default;
+$prism-operator: rgb(127, 0, 0) !default;
+$prism-keyword: rgb(0, 102, 204) !default;
+$prism-regex: rgb(127, 0, 127) !default;
+$prism-highlight-bg-mid: rgba(249, 204, 70, .4) !default;
+$prism-highlight-bg-low: rgba(249, 204, 70, .1) !default;
+$prism-highlight-bg-high: rgba(249, 204, 70, 0) !default;
+$prism-highlight-color: white;
+$prism-highlight-shadow: white;
+$prism-linenumber-border: #e3e3e3;
+$prism-linenumber: #515151;
 
 /**
  * ============================================================================

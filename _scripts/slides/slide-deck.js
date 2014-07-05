@@ -14,7 +14,8 @@ document.cancelFullScreen = document.webkitCancelFullScreen ||
 /**
  * @constructor
  */
-function SlideDeck(el) {
+function SlideDeck(el, config) {
+  this.SLIDE_CONFIG = config || {};
   this.curSlide_ = 0;
   this.prevSlide_ = 0;
   this.config_ = null;
@@ -24,7 +25,7 @@ function SlideDeck(el) {
 
   this.getCurrentSlideFromHash_();
 
-  // Call this explicitly. Modernizr.load won't be done until after DOM load.
+  // Call this explicitly.
   this.onDomLoaded_.bind(this)();
 }
 
@@ -67,7 +68,8 @@ SlideDeck.prototype.onDomLoaded_ = function(e) {
   this.slides = this.container.querySelectorAll('slide:not([hidden]):not(.hidden):not(.backdrop)');
 
   // If we're on a smartphone, apply special sauce.
-  if (Modernizr.mq('only screen and (max-device-width: 480px)')) {
+  var mq = window.matchMedia('only screen and (max-device-width: 480px)');
+  if (mq.matches) {
     // var style = document.createElement('link');
     // style.rel = 'stylesheet';
     // style.type = 'text/css';
@@ -78,7 +80,7 @@ SlideDeck.prototype.onDomLoaded_ = function(e) {
     this.container.classList.remove('layout-widescreen');
   }
 
-  this.loadConfig_(SLIDE_CONFIG);
+  this.loadConfig_(this.SLIDE_CONFIG);
   this.addEventListeners_();
   this.updateSlides_();
 
@@ -102,15 +104,11 @@ SlideDeck.prototype.onDomLoaded_ = function(e) {
   // Note: this needs to come after addEventListeners_(), which adds a
   // 'keydown' listener that this controller relies on.
 
-  // Modernizr.touch isn't a sufficient check for devices that support both
-  // touch and mouse. Create the controller in all cases.
-  // // Also, no need to set this up if we're on mobile.
-  // if (!Modernizr.touch) {
-    this.controller = new SlideController(this);
-    if (this.controller.isPopup) {
-      document.body.classList.add('popup');
-    }
-  //}
+  // Create the controller in all cases.
+  this.controller = new SlideController(this);
+  if (this.controller.isPopup) {
+    document.body.classList.add('popup');
+  }
 };
 
 /**
@@ -266,7 +264,7 @@ SlideDeck.prototype.focusOverview_ = function() {
   var overview = document.body.classList.contains('overview');
 
   for (var i = 0, slide; slide = this.slides[i]; i++) {
-    slide.style[Modernizr.prefixed('transform')] = overview ?
+    slide.style[PrefixFree.prefixSelector('transform')] = overview ?
         'translateZ(-2500px) translate(' + (( i - this.curSlide_ ) * 105) +
                                        '%, 0%)' : '';
   }
@@ -296,11 +294,6 @@ SlideDeck.prototype.loadConfig_ = function(config) {
 
   if (settings.favIcon) {
     this.addFavIcon_(settings.favIcon);
-  }
-
-  // Prettyprint. Default to on.
-  if (!!!('usePrettify' in settings) || settings.usePrettify) {
-    prettyPrint();
   }
 
   if (settings.analytics) {
@@ -396,8 +389,10 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     this.container.appendChild(el);
   }
 
-  if (Modernizr.touch && (!!!('enableTouch' in settings) ||
-      settings.enableTouch)) {
+  // the best touch detection we have right now... which sucks
+  var hasTouchEvents = ('ontouchstart' in window || navigator.maxTouchPoints);
+  var hasEnabledTouch = (!!!('enableTouch' in settings) || settings.enableTouch);
+  if (hasTouchEvents && hasEnabledTouch) {
     var self = this;
 
     // Note: this prevents mobile zoom in/out but prevents iOS from doing

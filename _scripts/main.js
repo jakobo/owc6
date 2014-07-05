@@ -1,29 +1,38 @@
-var config = require('../config/slide_config');
+var config = require('../_config/slide_config');
 var SlideDeck = require('./slides/slide-deck');
 var funcs = require('./lib/funcs');
-var hljs = require('highlight');
+var Prism;
 
-// configure highlight.js
-hljs.configure({tabReplace: '    '}); // 4 spaces
-
-// load our modernizr build (creates globals and polyfills where needed)
-// then, enable specific polyfills if we are missing classlist/dataset
-// then, include history management if not supported
-require('./vendor/modernizr');
+// enable any missing polyfills
 if (!!document.body.classList && !!document.body.dataset) {
   require('./polyfills/classList.min');
   require('./polyfills/dataset.min');
 }
 if (!!window.history) {
-  require('./polyfills/history');
+  require('./polyfills/history.min');
+}
+if (!!window.matchMedia) {
+  require('./polyfills/matchmedia');
 }
 
 // convert all our pre blocks of class prettyprint to highlight blocks
-var pre = document.getElementsByTagName('pre');
-for (var i = 0, len = pre.length; i < len; i++) {
-  if (funcs.hasClass(pre[i], 'prettyprint')) {
-    hljs.highlightBlock(funcs.getAttribute(pre[i], 'data-lang'), pre[i]);
-  }
+if (config.settings.usePrettify) {
+  Prism = require('../_vendor/prism/prism');
+  Prism.highlightAll();
 }
 
-module.exports = new SlideDeck();
+// analytics if enabled
+if (config.settings.analytics) {
+  (function() {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', config.settings.analytics]);
+    _gaq.push(['_trackPageview']);
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  }());
+}
+
+// do not specify an el, but do specify a config
+module.exports = new SlideDeck(null, config);

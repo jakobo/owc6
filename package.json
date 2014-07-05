@@ -1,24 +1,25 @@
 {
-  "name": "owc2014",
+  "private": true,
+  "name": "slidedeck",
   "version": "0.0.0",
-  "description": "Slides for Open Web Camp 2014",
-  "main": "index.js",
+  "description": "A slide deck system",
+  "main": "_scripts/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Jakobo/owc2014.git"
-  },
+  "repository": {},
   "author": "jheuser@linkedin.com",
   "license": "Apache License 2.0",
-  "bugs": {
-    "url": "https://github.com/Jakobo/owc2014/issues"
-  },
   "devDependencies": {
-    "connect-livereload": "~0.4.0",
     "express": "~4.4.5",
-    "tiny-lr": "0.0.8",
-    "gulp": "~3.8.5"
+    "gulp": "~3.8.5",
+    "hammerjs": "~1.1.3",
+    "which": "~1.0.5",
+    "gulp-buffer": "0.0.2",
+    "gulp-tap": "~0.1.1",
+    "gulp-uglify": "~0.3.1",
+    "browserify": "~4.2.0",
+    "gulp-concat": "~2.2.0",
+    "gulp-util": "~2.2.19"
   }
 }
