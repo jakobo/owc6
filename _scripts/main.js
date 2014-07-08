@@ -17,7 +17,7 @@ if (!!window.matchMedia) {
 
 // convert all our pre blocks of class prettyprint to highlight blocks
 if (config.settings.usePrettify) {
-  Prism = require('../_vendor/prism/prism');
+  Prism = require('./lib/prism');
   Prism.highlightAll();
 }
 

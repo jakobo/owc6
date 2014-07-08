@@ -9,11 +9,16 @@ compass. And gulp. Always with the gulps.
 Authors: Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
          Jakob Heuser <jheuser@linkedin.com>
+
+About this file: The contents of this file can be modified for any slide
+presentation. Once modified, you should save it into index.html. The example
+deck demonstrates all of the different features that are possible with this
+slide system.
 -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title></title> <!-- populated from slide_config.json -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
@@ -29,7 +34,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
 <slides class="layout-widescreen">
 
-  <slide class="logoslide nobackground dark">
+  <slide class="logoslide nobackground">
     <article class="flexbox vcenter">
       <span><img src="images/open_web_camp_logo.png"></span>
     </article>
@@ -43,138 +48,8 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
     </hgroup>
-    <aside class="note">
-      <section>
-        <p>Title: A Pragmatic Guide to Web Components</p>
-        <p>Overview: Web Components. The moment is upon us where we can encapsulate
-        large amounts of code behind a single semantic tag. Get a crash course on
-        what Web Components are, how the current batch of JavaScript frameworks
-        address the technology, and some good anti-patterns to avoid when building
-        your own Web Components.</p>
-      </section>
-    </aside>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Not Today</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>A W3C spec sing-a-long</li>
-        <li>The inner workings of Shadow DOM</li>
-        <li>What is the "best" X</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Today</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>What / Why Web Components</li>
-        <li>Code examples in Polymer, Ember, Angular, React</li>
-        <li>Caveats and Antipatterns</li>
-        <li>Building a better web</li>
-      </ul>
-    </article>
-    <aside class="note">
-      <section>
-        <h3>Additional Resources:</h3>
-        <ul>
-          <li><a href="http://webcomponents.org">webcomponents.org</a>: a great resource for discussing and learning about web components</a></li>
-          <li><a href="http://w3c.github.io/webcomponents/explainer/">Introduction to Web Components</a>: The W3C specification</li>
-        </ul>
-      </section>
-    </aside>
-    <footer class="source">(Viewing this online? Press "P" for great resources!)</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/jakob.png" alt="Jakob Heuser" title="Jakob Heuser">
-    </article>
-  </slide>
-
-  <slide class="segue dark nobackground">
-    <hgroup class="auto-fadein">
-      <h2>What are Web Components?</h2>
-      <h3>Exposing the guts of an HTML tag<br>in a standards compilant way</h3>
-    </hgroup>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
-    <footer class="source white">a picture of a mean looking dragon<br/>SOURCE</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/jquery_ui.png" alt="jQuery UI Logo" title="jQuery UI Logo">
-    </article>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/twitter_bootstrap.png" alt="Twitter Bootstrap Logo" title="Twitter Bootstrap Logo">
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/fat_whale.jpg)">
-    <footer class="source white">a picture a chubby looking whale<br/>SOURCE</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/dojo_dijits.png" alt="Dojo Dijits Logo" title="Dojo Dijits Logo">
-    </article>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/ember_ui.png" alt="Ember UI Logo" title="Ember UI Logo">
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
-    <footer class="source white">a picture of a mean looking dragon<br/>SOURCE</footer>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/fat_dragon.gif)">
-    <footer class="source white">a picture a very fat dragon<br/>SOURCE</footer>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/web_components_logo.gif)">
-    <footer class="source">web components logo<br/>SOURCE</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/w3c_logo.png" alt="W3C Logo" title="W3C Logo">
-    </article>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <article class="flexbox vleft auto-fadein">
-      <pre><code class="language-html">
-        &lt;typeahead source=&quot;http://mysite.com/api/&quot;&gt;
-      </code></pre>
-    </article>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <article class="flexbox vleft auto-fadein">
-      <pre><code class="language-html">
-        &lt;todo-list&gt;
-          &lt;item&gt;Item 1&lt;/item&gt;
-          &lt;item&gt;Item 2&lt;/item&gt;
-          &lt;item&gt;Item 3&lt;/item&gt;
-        &lt;/todo-list&gt;
-      </code></pre>
-    </article>
-  </slide>
-<!--
   <slide>
     <hgroup>
       <h2>Slide with Bullets</h2>
@@ -508,7 +383,6 @@ function helloWorld(world) {
       <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
     </article>
   </slide>
--->
 
   <slide class="thank-you-slide segue nobackground">
     <aside class="logobar right"><img src="images/open_web_camp_logo_128.png"></aside>
@@ -531,7 +405,7 @@ function helloWorld(world) {
 
 </slides>
 
-<script src="js/bundle.js" data-manual></script>
+<script src="js/bundle.js"></script>
 <!-- Try a chrome frame on antiquated IE lt 9 (10 doesn't have these) -->
 <!--[if IE]>
   <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>

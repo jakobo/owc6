@@ -698,10 +698,11 @@ article.smaller {
   h2 {
     color: $segue-subheadline-color;
     font-size: 60px;
+    padding-bottom: 1em;
   }
   h3 {
     color: $segue-subsubheadline-color;
-    line-height: 2.8;
+    line-height: 1.5;
   }
   hgroup {
     position: absolute;
