@@ -1,2 +1,11 @@
-$logobar-bg-color: #515151;
-$small-icon: image-url("open_web_camp_logo_30.png");
+@import "compass/css3";
+
+// variables
+$social-tags: "#owc6";
+$logobar-bg-color: #333333;
+$small-icon: image-url("conference/open_web_camp_logo_30.png");
+
+// custom styles
+#about-me img {
+  @include border-radius(50%);
+}
