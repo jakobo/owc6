@@ -7,6 +7,7 @@
 
 var SlideController = require('./slide-controller');
 var Hammer = require('hammerjs');
+var CSStoStyleProperty = require('../lib/funcs').CSStoStyleProperty;
 
 document.cancelFullScreen = document.webkitCancelFullScreen ||
                             document.mozCancelFullScreen;
@@ -266,9 +267,8 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
  */
 SlideDeck.prototype.focusOverview_ = function() {
   var overview = document.body.classList.contains('overview');
-
   for (var i = 0, slide; slide = this.slides[i]; i++) {
-    slide.style[PrefixFree.prefixSelector('transform')] = overview ?
+    slide.style[CSStoStyleProperty('transform')] = overview ?
         'translateZ(-2500px) translate(' + (( i - this.curSlide_ ) * 105) +
                                        '%, 0%)' : '';
   }

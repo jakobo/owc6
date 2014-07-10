@@ -254,11 +254,11 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </hgroup>
     <article>
       <pre><code class="language-html">
-        <carousel>
-          <carousel-item>one</carousel-item>
-          <carousel-item>two</carousel-item>
-          <carousel-item>three</carousel-item>
-        </carousel>
+        &lt;carousel&gt;
+          &lt;carousel-item&gt;one&lt;/carousel-item&gt;
+          &lt;carousel-item&gt;two&lt;/carousel-item&gt;
+          &lt;carousel-item&gt;three&lt;/carousel-item&gt;
+        &lt;/carousel&gt;
       </code></pre>
     </article>
   </slide>
@@ -267,7 +267,212 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter">
       <img src="images/frameworks/ember.png" alt="The ember logo" title="The ember logo">
     </article>
-    <footer class="source">Ember<br><a href="http://www.polymer-project.org/">http://www.polymer-project.org/</a></footer>
+    <footer class="source">Ember<br><a href="http://emberjs.com/">http://emberjs.com/</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ember Carousel Markup</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="2"><code class="language-html">
+        &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;index&quot;&gt;
+          {{#e-carousel}}
+            &lt;carousel-item&gt;one&lt;/carousel-item&gt;
+            &lt;carousel-item&gt;two&lt;/carousel-item&gt;
+            &lt;carousel-item&gt;three&lt;/carousel-item&gt;
+          {{/e-carousel}}
+        &lt;/script&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ember Carousel Templates</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="2,4,10"><code class="language-html">
+        &lt;style&gt;
+          .e-carousel .selected { color: red; }
+        &lt;/style&gt;
+        &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;components/e-carousel&quot;&gt;
+          &lt;ul class=&quot;e-carousel&quot;&gt;
+            {{#each item in items}}
+              &lt;li {{bind-attr class=&quot;item.className&quot;}}&gt;{{item.content}}&lt;/li&gt;
+            {{/each}}
+          &lt;/ul&gt;
+          &lt;content&gt;{{yield}}&lt;/content&gt;
+          &lt;button {{action &quot;previous&quot;}}&gt;Previous&lt;/button&gt;
+          &lt;button {{action &quot;next&quot;}}&gt;Next&lt;/button&gt;
+        &lt;/script&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ember JavaScript 1/2</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="6,9"><code class="language-javascript">
+        App = Ember.Application.create();
+        App.IndexRoute = Ember.Route.extend({});
+        App.ECarouselComponent = Ember.Component.extend({
+          items: Ember.A([]),
+          index: 0,
+          didInsertElement: function() {
+            this._super();
+            var self = this;
+            var $items = this.$(&apos;content carousel-item&apos;);
+            $items.hide();
+            $items.each(function(idx, item) {
+              self.items.pushObject(Ember.Object.create({
+                className: &apos;&apos;,
+                content: self.$(item).html()
+              }));
+            });
+            $items.remove();
+            this.go(0);
+          },
+          /* ... */
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ember JavaScript 2/2</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-javascript" data-indent="  ">
+          /* ... */
+          actions: {
+            previous: function() { this.go(this.get(&apos;index&apos;) - 1); },
+            next: function() { this.go(this.get(&apos;index&apos;) + 1); }
+          },
+          go: function(idx) {
+            if (idx &gt;= this.items.length) idx = 0;
+            if (idx &lt; 0) idx = this.items.length - 1;
+            this.items.objectAt(this.get(&apos;index&apos;)).set(&apos;className&apos;, &apos;&apos;);
+            this.items.objectAt(idx).set(&apos;className&apos;, &apos;selected&apos;);
+            this.set(&apos;index&apos;, idx);
+          }
+        });
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/frameworks/angular.png" alt="The AngularJS logo" title="The AngularJS logo">
+    </article>
+    <footer class="source">AngularJS<br><a href="https://angularjs.org/">https://angularjs.org/</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AngularJS Carousel Markup</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="1"><code class="language-html">
+        &lt;carousel ang-component ang-carousel&gt;
+          &lt;carousel-item&gt;one&lt;/carousel-item&gt;
+          &lt;carousel-item&gt;two&lt;/carousel-item&gt;
+          &lt;carousel-item&gt;three&lt;/carousel-item&gt;
+        &lt;/carousel&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AngularJS Carousel Element</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="5"><code class="language-html">
+        &lt;style&gt;
+          ang-template { display: none; }
+          carousel .selected { color: red; }
+        &lt;/style&gt;
+        &lt;ang-template for=&quot;ang-carousel&quot;&gt;
+          &lt;ul&gt;
+            &lt;li ng-repeat=&quot;item in items&quot; ng-class=&quot;getClass($index)&quot;&gt;
+              {{item}}
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;button ng-click=&quot;previous($event)&quot;&gt;Previous&lt;/button&gt;
+          &lt;button ng-click=&quot;next($event)&quot;&gt;Next&lt;/button&gt;
+        &lt;/ang-template&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AngularJS JavaScript 1/2</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="1,9,15"><code class="language-javascript">
+        angular.element(document).ready(function() {
+          var els = document.querySelectorAll(&apos;*[ang-component]&apos;);
+          for (var i = 0, len = els.length; i &lt; len; i++ ) {
+            angular.bootstrap(els[i], [els[i].tagName.toLowerCase()]);
+          }
+        });
+
+        angular.module(&apos;carousel&apos;, [])
+        .directive(&apos;angCarousel&apos;, function () {
+          var tmpl = document.querySelector(&apos;ang-template[for=&quot;ang-carousel&quot;]&apos;);
+          return {
+            restrict: &apos;A&apos;,
+            template: tmpl.innerHTML,
+            transclude: true,
+            controller: function($scope, $transclude) {
+              var index = 0;
+              function go(idx) {
+                if (idx &gt;= $scope.items.length) idx = 0;
+                if (idx &lt; 0) idx = $scope.items.length - 1;
+                index = idx;
+              }
+              /* ... */
+      </code></pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AngularJS JavaScript 2/2</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre data-line="8"><code class="language-javascript" data-indent="      ">
+              /* ... */
+              $scope.items = [];
+              $scope.previous = function() { go(index - 1); };
+              $scope.next = function() { go(index + 1); };
+              $scope.getClass = function(idx) {
+                return (idx === index) ? &apos;selected&apos; : &apos;&apos;;
+              };
+              $transclude(function(clone) {
+                var div = angular.element(document.createElement(&apos;div&apos;));
+                var nodes = div.append(clone).find(&apos;carousel-item&apos;);
+
+                for (var i = 0, len = nodes.length; i &lt; len; i++) {
+                  $scope.items.push(nodes[i].innerHTML);
+                }
+              });
+            }
+          };
+        });
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
@@ -281,8 +486,8 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <hgroup>
       <h2>Polymer Carousel Markup</h2>
     </hgroup>
-    <article>
-      <pre><code class="language-html">
+    <article class="smaller">
+      <pre data-line="1"><code class="language-html">
         &lt;p-carousel&gt;
           &lt;p-carousel-item&gt;one&lt;/p-carousel-item&gt;
           &lt;p-carousel-item&gt;two&lt;/p-carousel-item&gt;
@@ -290,7 +495,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;/p-carousel&gt;
       </code></pre>
     </article>
-    <footer class="source"><a href="http://jsbin.com/sixiwora">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/sixiwora/3/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
@@ -298,12 +503,12 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Polymer Carousel Element</h2>
     </hgroup>
     <article class="smaller">
-      <pre><code class="language-html">
+      <pre data-line="1,10,14"><code class="language-html">
         &lt;polymer-element name=&quot;p-carousel&quot; noscript&gt;
           &lt;template&gt;
             &lt;ul&gt;
               &lt;template repeat=&quot;{{ item in items }}&quot;&gt;
-                &lt;li class=&quot;{{item.className}}&quot;&gt;{{ item.content }}&lt;/li&gt;
+                &lt;li class=&quot;{{ item.className }}&quot;&gt;{{ item.content }}&lt;/li&gt;
               &lt;/template&gt;
             &lt;/ul&gt;
             &lt;button id=&quot;prev&quot;&gt;Previous&lt;/button&gt;
@@ -347,7 +552,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Polymer Carousel JavaScript (2/2)</h2>
     </hgroup>
     <article class="smaller">
-      <pre><code class="language-javascript" data-indent="  ">
+      <pre data-line="4,13"><code class="language-javascript" data-indent="  ">
           /* ... */
           attached: function() {
             var self = this,
