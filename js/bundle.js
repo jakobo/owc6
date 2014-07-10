@@ -110,7 +110,7 @@ module.exports.CSStoStyleProperty = function(property) {
 var oldPrism = window.Prism;
 
 // requires and configures Prism
-var Prism = require('../../_vendor/prism/prism');
+var Prism = require('../vendor/prism/prism');
 
 // alias HTML/markup
 Prism.languages.html = Prism.languages.markup;
@@ -140,7 +140,7 @@ window.Prism = oldPrism;
 // export Prism
 module.exports = Prism;
 
-},{"../../_vendor/prism/prism":11}],4:[function(require,module,exports){
+},{"../vendor/prism/prism":11}],4:[function(require,module,exports){
 var config = require('../_config/slide_config');
 var SlideDeck = require('./slides/slide-deck');
 var funcs = require('./lib/funcs');

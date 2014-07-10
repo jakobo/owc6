@@ -1,7 +1,7 @@
 var oldPrism = window.Prism;
 
 // requires and configures Prism
-var Prism = require('../../_vendor/prism/prism');
+var Prism = require('../vendor/prism/prism');
 
 // alias HTML/markup
 Prism.languages.html = Prism.languages.markup;
