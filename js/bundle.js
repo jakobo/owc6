@@ -158,6 +158,9 @@ if (!!window.matchMedia) {
   require('./polyfills/matchmedia');
 }
 
+// always enable console shims
+require('console-shim');
+
 // convert all our pre blocks of class prettyprint to highlight blocks
 if (config.settings.usePrettify) {
   Prism = require('./lib/prism');
@@ -180,7 +183,7 @@ if (config.settings.analytics) {
 // do not specify an el, but do specify a config
 module.exports = new SlideDeck(null, config);
 
-},{"../_config/slide_config":1,"./lib/funcs":2,"./lib/prism":3,"./polyfills/classList.min":5,"./polyfills/dataset.min":6,"./polyfills/history.min":7,"./polyfills/matchmedia":8,"./slides/slide-deck":10}],5:[function(require,module,exports){
+},{"../_config/slide_config":1,"./lib/funcs":2,"./lib/prism":3,"./polyfills/classList.min":5,"./polyfills/dataset.min":6,"./polyfills/history.min":7,"./polyfills/matchmedia":8,"./slides/slide-deck":10,"console-shim":12}],5:[function(require,module,exports){
 /* @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 "use strict";if(typeof document!=="undefined"&&!("classList" in document.createElement("a"))){(function(a){var f="classList",d="prototype",e=(a.HTMLElement||a.Element)[d],g=Object;strTrim=String[d].trim||function(){return this.replace(/^\s+|\s+$/g,"")},arrIndexOf=Array[d].indexOf||function(k){for(var j=0,h=this.length;j<h;j++){if(j in this&&this[j]===k){return j}}return -1},DOMEx=function(h,i){this.name=h;this.code=DOMException[h];this.message=i},checkTokenAndGetIndex=function(i,h){if(h===""){throw new DOMEx("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(h)){throw new DOMEx("INVALID_CHARACTER_ERR","String contains an invalid character")}return arrIndexOf.call(i,h)},ClassList=function(m){var l=strTrim.call(m.className),k=l?l.split(/\s+/):[];for(var j=0,h=k.length;j<h;j++){this.push(k[j])}this._updateClassName=function(){m.className=this.toString()}},classListProto=ClassList[d]=[],classListGetter=function(){return new ClassList(this)};DOMEx[d]=Error[d];classListProto.item=function(h){return this[h]||null};classListProto.contains=function(h){h+="";return checkTokenAndGetIndex(this,h)!==-1};classListProto.add=function(h){h+="";if(checkTokenAndGetIndex(this,h)===-1){this.push(h);this._updateClassName()}};classListProto.remove=function(i){i+="";var h=checkTokenAndGetIndex(this,i);if(h!==-1){this.splice(h,1);this._updateClassName()}};classListProto.toggle=function(h){h+="";if(checkTokenAndGetIndex(this,h)===-1){this.add(h)}else{this.remove(h)}};classListProto.toString=function(){return this.join(" ")};if(g.defineProperty){var c={get:classListGetter,enumerable:true,configurable:true};try{g.defineProperty(e,f,c)}catch(b){if(b.number===-2146823252){c.enumerable=false;g.defineProperty(e,f,c)}}}else{if(g[d].__defineGetter__){e.__defineGetter__(f,classListGetter)}}}(self))};
 },{}],6:[function(require,module,exports){
@@ -317,7 +320,7 @@ SlideController.prototype.onMessage_ = function(e) {
   // from file:// though.
   // TODO: It would be dope if FF implemented location.origin!
   if (e.origin != ORIGIN_ && ORIGIN_.indexOf('file://') != 0) {
-    alert('Someone tried to postMessage from an unknown origin');
+    console.log('Someone tried to postMessage from an unknown origin');
     return;
   }
 
@@ -561,10 +564,6 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
       document.body.classList.toggle('overlay');
       break;
 
-    case 72: // H: Toggle code highlighting
-      document.body.classList.toggle('highlight-code');
-      break;
-
     case 79: // O: Toggle overview
       this.toggleOverview();
       break;
@@ -577,13 +576,8 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
       }
       break;
 
-    case 82: // R
-      // TODO: implement refresh on main slides when popup is refreshed.
-      break;
-
-    case 27: // ESC: Hide notes and highlighting
+    case 27: // ESC: Hide notes
       document.body.classList.remove('with-notes');
-      document.body.classList.remove('highlight-code');
 
       if (document.body.classList.contains('overview')) {
         this.toggleOverview();
@@ -815,7 +809,6 @@ SlideDeck.prototype.buildNextItem_ = function() {
 SlideDeck.prototype.prevSlide = function(opt_dontPush) {
   if (this.curSlide_ > 0) {
     var bodyClassList = document.body.classList;
-    bodyClassList.remove('highlight-code');
 
     // Toggle off speaker notes if they're showing when we move backwards on the
     // main slides. If we're the speaker notes popup, leave them up.
@@ -841,7 +834,6 @@ SlideDeck.prototype.nextSlide = function(opt_dontPush) {
 
   if (this.curSlide_ < this.slides.length - 1) {
     var bodyClassList = document.body.classList;
-    bodyClassList.remove('highlight-code');
 
     // Toggle off speaker notes if they're showing when we advanced on the main
     // slides. If we're the speaker notes popup, leave them up.
@@ -1120,7 +1112,7 @@ SlideDeck.prototype.loadAnalytics_ = function() {
 
 module.exports = SlideDeck;
 
-},{"../lib/funcs":2,"./slide-controller":9,"hammerjs":12}],11:[function(require,module,exports){
+},{"../lib/funcs":2,"./slide-controller":9,"hammerjs":13}],11:[function(require,module,exports){
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+java+scss+bash&plugins=line-highlight+line-numbers */
 var self = (typeof window !== 'undefined') ? window : {};
 
@@ -1829,6 +1821,221 @@ Prism.hooks.add('after-highlight', function (env) {
 });;
 
 },{}],12:[function(require,module,exports){
+/**
+ * @preserve console-shim 1.0.3
+ * https://github.com/kayahr/console-shim
+ * Copyright (C) 2011 Klaus Reimer <k@ailis.de>
+ * Licensed under the MIT license
+ * (See http://www.opensource.org/licenses/mit-license)
+ */
+ 
+ 
+(function(){
+"use strict";
+
+/**
+ * Returns a function which calls the specified function in the specified
+ * scope.
+ *
+ * @param {Function} func
+ *            The function to call.
+ * @param {Object} scope
+ *            The scope to call the function in.
+ * @param {...*} args
+ *            Additional arguments to pass to the bound function.
+ * @returns {function(...[*]): undefined}
+ *            The bound function.
+ */
+var bind = function(func, scope, args)
+{
+    var fixedArgs = Array.prototype.slice.call(arguments, 2);
+    return function()
+    {
+        var args = fixedArgs.concat(Array.prototype.slice.call(arguments, 0));
+        (/** @type {Function} */ func).apply(scope, args);
+    };
+};
+
+// Create console if not present
+if (!window["console"]) window.console = /** @type {Console} */ ({});
+var console = (/** @type {Object} */ window.console);
+
+// Implement console log if needed
+if (!console["log"])
+{
+    // Use log4javascript if present
+    if (window["log4javascript"])
+    {
+        var log = log4javascript.getDefaultLogger();
+        console.log = bind(log.info, log);
+        console.debug = bind(log.debug, log);
+        console.info = bind(log.info, log);
+        console.warn = bind(log.warn, log);
+        console.error = bind(log.error, log);
+    }
+    
+    // Use empty dummy implementation to ignore logging
+    else
+    {
+        console.log = (/** @param {...*} args */ function(args) {});
+    }
+}
+
+// Implement other log levels to console.log if missing
+if (!console["debug"]) console.debug = console.log;
+if (!console["info"]) console.info = console.log;
+if (!console["warn"]) console.warn = console.log;
+if (!console["error"]) console.error = console.log;
+
+// Wrap the log methods in IE (<=9) because their argument handling is wrong
+// This wrapping is also done if the __consoleShimTest__ symbol is set. This
+// is needed for unit testing.
+if (window["__consoleShimTest__"] != null || 
+    eval("/*@cc_on @_jscript_version <= 9@*/"))
+{
+    /**
+     * Wraps the call to a real IE logging method. Modifies the arguments so
+     * parameters which are not represented by a placeholder are properly
+     * printed with a space character as separator.
+     *
+     * @param {...*} args
+     *            The function arguments. First argument is the log function
+     *            to call, the other arguments are the log arguments.
+     */
+    var wrap = function(args)
+    {
+        var i, max, match, log;
+        
+        // Convert argument list to real array
+        args = Array.prototype.slice.call(arguments, 0);
+        
+        // First argument is the log method to call
+        log = args.shift();
+        
+        max = args.length;
+        if (max > 1 && window["__consoleShimTest__"] !== false)
+        {
+            // When first parameter is not a string then add a format string to
+            // the argument list so we are able to modify it in the next stop
+            if (typeof(args[0]) != "string")
+            {
+                args.unshift("%o");
+                max += 1;
+            }
+            
+            // For each additional parameter which has no placeholder in the
+            // format string we add another placeholder separated with a
+            // space character.
+            match = args[0].match(/%[a-z]/g);
+            for (i = match ? match.length + 1 : 1; i < max; i += 1)
+            {
+                args[0] += " %o";
+            }
+        }
+        Function.apply.call(log, console, args);
+    };
+    
+    // Wrap the native log methods of IE to fix argument output problems
+    console.log = bind(wrap, window, console.log);
+    console.debug = bind(wrap, window, console.debug);
+    console.info = bind(wrap, window, console.info);
+    console.warn = bind(wrap, window, console.warn);
+    console.error = bind(wrap, window, console.error);
+}
+
+// Implement console.assert if missing
+if (!console["assert"])
+{
+    console["assert"] = function()
+    {
+        var args = Array.prototype.slice.call(arguments, 0);
+        var expr = args.shift();
+        if (!expr)
+        {
+            args[0] = "Assertion failed: " + args[0];
+            console.error.apply(console, args);
+        }
+    };
+}
+
+// Linking console.dir and console.dirxml to the console.log method if
+// missing. Hopefully the browser already logs objects and DOM nodes as a
+// tree.
+if (!console["dir"]) console["dir"] = console.log;
+if (!console["dirxml"]) console["dirxml"] = console.log;
+
+// Linking console.exception to console.error. This is not the same but
+// at least some error message is displayed.
+if (!console["exception"]) console["exception"] = console.error;
+
+// Implement console.time and console.timeEnd if one of them is missing
+if (!console["time"] || !console["timeEnd"])
+{
+    var timers = {};
+    console["time"] = function(id)
+    {
+        timers[id] = new Date().getTime();
+    };
+    console["timeEnd"] = function(id)
+    {
+        var start = timers[id];
+        if (start)
+        {
+            console.log(id + ": " + (new Date().getTime() - start) + "ms");
+            delete timers[id];
+        }
+    };
+}
+
+// Implement console.table if missing
+if (!console["table"])
+{
+    console["table"] = function(data, columns)
+    {
+        var i, iMax, row, j, jMax, k;
+        
+        // Do nothing if data has wrong type or no data was specified
+        if (!data || !(data instanceof Array) || !data.length) return;
+        
+        // Auto-calculate columns array if not set
+        if (!columns || !(columns instanceof Array))
+        {
+            columns = [];
+            for (k in data[0])
+            {
+                if (!data[0].hasOwnProperty(k)) continue;
+                columns.push(k);
+            }
+        }
+        
+        for (i = 0, iMax = data.length; i < iMax; i += 1)
+        {
+            row = [];
+            for (j = 0, jMax = columns.length; j < jMax; j += 1)
+            {
+                row.push(data[i][columns[j]]);
+            }
+            
+            Function.apply.call(console.log, console, row);
+        }
+    };
+}
+
+// Dummy implementations of other console features to prevent error messages
+// in browsers not supporting it.
+if (!console["clear"]) console["clear"] = function() {};
+if (!console["trace"]) console["trace"] = function() {};
+if (!console["group"]) console["group"] = function() {};
+if (!console["groupCollapsed"]) console["groupCollapsed"] = function() {};
+if (!console["groupEnd"]) console["groupEnd"] = function() {};
+if (!console["timeStamp"]) console["timeStamp"] = function() {};
+if (!console["profile"]) console["profile"] = function() {};
+if (!console["profileEnd"]) console["profileEnd"] = function() {};
+if (!console["count"]) console["count"] = function() {};
+
+})();
+
+},{}],13:[function(require,module,exports){
 /*! Hammer.JS - v1.1.3 - 2014-05-20
  * http://eightmedia.github.io/hammer.js
  *

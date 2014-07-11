@@ -15,6 +15,9 @@ if (!!window.matchMedia) {
   require('./polyfills/matchmedia');
 }
 
+// always enable console shims
+require('console-shim');
+
 // convert all our pre blocks of class prettyprint to highlight blocks
 if (config.settings.usePrettify) {
   Prism = require('./lib/prism');

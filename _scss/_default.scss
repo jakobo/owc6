@@ -196,7 +196,7 @@ slides > slide {
     height: 100%;
 
     > iframe {
-      height: 98%;
+      height: 90%;
     }
   }
 }
@@ -327,7 +327,7 @@ ul {
 
 iframe {
   width: 100%;
-  height: $slide-height - ($slide-top-bottom-padding * 2) - ($article-content-top-padding * 2);
+  height: $slide-height - ($slide-top-bottom-padding * 3) - ($article-content-top-padding * 2);
   background: white;
   border: 1px solid $iframe-border-color;
   @include box-sizing(border-box);

@@ -20,6 +20,7 @@
     "gulp-uglify": "~0.3.1",
     "browserify": "~4.2.0",
     "gulp-concat": "~2.2.0",
-    "gulp-util": "~2.2.19"
+    "gulp-util": "~2.2.19",
+    "console-shim": "~1.0.3"
   }
 }

@@ -209,10 +209,6 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
       document.body.classList.toggle('overlay');
       break;
 
-    case 72: // H: Toggle code highlighting
-      document.body.classList.toggle('highlight-code');
-      break;
-
     case 79: // O: Toggle overview
       this.toggleOverview();
       break;
@@ -225,13 +221,8 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
       }
       break;
 
-    case 82: // R
-      // TODO: implement refresh on main slides when popup is refreshed.
-      break;
-
-    case 27: // ESC: Hide notes and highlighting
+    case 27: // ESC: Hide notes
       document.body.classList.remove('with-notes');
-      document.body.classList.remove('highlight-code');
 
       if (document.body.classList.contains('overview')) {
         this.toggleOverview();
@@ -463,7 +454,6 @@ SlideDeck.prototype.buildNextItem_ = function() {
 SlideDeck.prototype.prevSlide = function(opt_dontPush) {
   if (this.curSlide_ > 0) {
     var bodyClassList = document.body.classList;
-    bodyClassList.remove('highlight-code');
 
     // Toggle off speaker notes if they're showing when we move backwards on the
     // main slides. If we're the speaker notes popup, leave them up.
@@ -489,7 +479,6 @@ SlideDeck.prototype.nextSlide = function(opt_dontPush) {
 
   if (this.curSlide_ < this.slides.length - 1) {
     var bodyClassList = document.body.classList;
-    bodyClassList.remove('highlight-code');
 
     // Toggle off speaker notes if they're showing when we advanced on the main
     // slides. If we're the speaker notes popup, leave them up.

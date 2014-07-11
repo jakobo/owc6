@@ -62,8 +62,8 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article>
       <ul class="build">
         <li>A W3C spec sing-a-long</li>
-        <li>The inner workings of Shadow DOM</li>
-        <li>What is the "best" X</li>
+        <li>A detailed walkthrough of the Shadow DOM methods</li>
+        <li>Any sort of opinion about what is the "best" framework</li>
       </ul>
     </article>
   </slide>
@@ -76,8 +76,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <ul>
         <li>What / Why Web Components</li>
         <li>Code examples in Polymer, Ember, Angular, React</li>
-        <li>Caveats and Antipatterns</li>
-        <li>Building a better web</li>
+        <li>Responsible Component Usage</li>
       </ul>
     </article>
     <aside class="note">
@@ -100,62 +99,70 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide class="segue dark nobackground">
     <hgroup class="auto-fadein">
-      <h2>What are Web Components?</h2>
-      <h3>Exposing the guts of an HTML tag<br>in a standards compilant way</h3>
+      <h2>What Are Web Components?</h2>
+      <h3>Why Should We Care?</h3>
     </hgroup>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
-    <footer class="source white">a picture of Alduin, the dragon<br>SOURCE: elderscrolls.wikia.com</footer>
-  </slide>
-
   <slide>
-    <article class="flexbox vcenter">
-      <img src="images/frameworks/jquery_ui.png" alt="jQuery UI Logo" title="jQuery UI Logo">
+    <hgroup>
+      <h2>It Started Simple Enough</h2>
+    </hgroup>
+    <article>
+      <pre><code class="language-html">
+        &lt;!doctype html&gt;
+        &lt;html&gt;
+          &lt;head&gt;&lt;title&gt;My Great Page&lt;/title&gt;&lt;/head&gt;
+          &lt;body&gt;
+            &lt;h1&gt;Yeah! Internet!&lt;/h1&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
+      </code></pre>
     </article>
   </slide>
 
-  <slide>
+  <slide class="fill nobackground" style="background-image: url(images/what_happened.jpg)">
+    <footer class="source white">what happened next?<br>SOURCE: twofour.co.uk</footer>
+  </slide>
+
+  <slide class="widgets">
     <article class="flexbox vcenter">
-      <img src="images/frameworks/twitter_bootstrap.png" alt="Twitter Bootstrap Logo" title="Twitter Bootstrap Logo">
+      <img src="images/bloat/jqueryui_tabs.png" alt="The jQuery UI tab widget" title="The jQuery UI tab widget">
     </article>
+    <img class="attributed" src="images/bloat/jqueryui_logo.png" alt="The jQuery UI logo" title="The jQuery UI logo">
+  </slide>
+
+  <slide class="widgets">
+    <article class="flexbox vcenter">
+      <img src="images/bloat/dojo_dialog.png" alt="The dojo dialog dijit" title="The dojo dialog dijit">
+    </article>
+    <img class="attributed" src="images/bloat/dojo_logo.png" alt="The dojo logo" title="The dojo logo">
+  </slide>
+
+  <slide class="widgets">
+    <article class="flexbox vcenter">
+      <img src="images/bloat/yui_calendar.png" alt="The YUI calendar widget" title="The YUI calendar widget">
+    </article>
+    <img class="attributed" src="images/bloat/yui_logo.png" alt="The YUI logo" title="The YUI logo">
+  </slide>
+
+  <slide class="widgets">
+    <article class="flexbox vcenter">
+      <img src="images/bloat/bootstrap_dropdowns.png" alt="The Bootstrap dropdown component" title="The Bootstrap dropdown component">
+    </article>
+    <img class="attributed" src="images/bloat/bootstrap_logo.png" alt="The Bootstrap logo" title="The Bootstrap logo">
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/fat_whale.jpg)">
     <footer class="source white">a picture a chubby looking beluga whale<br>SOURCE: flickr.com/photos/jspad</footer>
   </slide>
 
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/frameworks/dojo_dijits.png" alt="Dojo Dijits Logo" title="Dojo Dijits Logo">
-    </article>
+  <slide class="fill nobackground" style="background-image: url(images/linkedin_markup.png)">
+    <footer class="source">a screenshot of LinkedIn's markup</footer>
   </slide>
 
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/frameworks/ember_ui.png" alt="Ember UI Logo" title="Ember UI Logo">
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
-    <footer class="source white">a picture of Alduin, the dragon<br>SOURCE: elderscrolls.wikia.com</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img class="auto-fadein" src="images/fat_dragon.gif" alt="A caricature of a fat dragon" title="A caricature of a fat dragon">
-      <footer class="source">fat dragon<br>SOURCE: aoth.deviantart.com</footer>
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/orgs/web_components_logo.svg)">
-    <footer class="source white">web components logo</footer>
-  </slide>
-
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/orgs/w3c_logo.png" alt="W3C Logo" title="W3C Logo">
-    </article>
+  <slide class="fill nobackground" style="background-image: url(images/dirty_white_trash_sm.jpg)">
+    <footer class="source white">"Dirty White Trash"<br>&copy; Tim Noble &amp; Sue Webster</footer>
   </slide>
 
   <slide>
@@ -167,7 +174,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   <slide>
     <article class="flexbox vleft">
       <pre><code class="language-html">
-        &lt;typeahead source=&quot;http://mysite.com/api/&quot;&gt;
+        &lt;twttr-typeahead source=&quot;http://mysite.com/api/&quot;&gt;
       </code></pre>
     </article>
   </slide>
@@ -181,12 +188,12 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   <slide>
     <article class="flexbox vleft">
       <pre><code class="language-html">
-		    &lt;localstorage id=&quot;storage&quot; name=&quot;my-namespace&quot;&gt;&lt;/localstorage&gt;
-		    &lt;todo-database id=&quot;model&quot; storageId=&quot;storage&quot;&gt;&lt;/todo-database&gt;
-		    &lt;todos modelId=&quot;model&quot;&gt;
-          &lt;item&gt;A todo&lt;/item&gt;
-          &lt;item completed&gt;A completed item&lt;/item&gt;
-        &lt;/todos&gt;
+        &lt;local-storage id=&quot;storage&quot; name=&quot;my-namespace&quot;&gt;&lt;/local-storage&gt;
+        &lt;todo-database id=&quot;model&quot; storageId=&quot;storage&quot;&gt;&lt;/todo-database&gt;
+        &lt;todos-app modelId=&quot;model&quot;&gt;
+          &lt;todo-item&gt;A todo&lt;/todo-item&gt;
+          &lt;todo-item completed&gt;A completed item&lt;/todo-item&gt;
+        &lt;/todos-app&gt;
       </code></pre>
     </article>
   </slide>
@@ -200,6 +207,16 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </article>
   </slide>
 
+  <slide class="fill nobackground" style="background-image: url(images/orgs/web_components_logo.svg)">
+    <footer class="source white">web components logo</footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/orgs/w3c_logo.png" alt="W3C Logo" title="W3C Logo">
+    </article>
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/ie_voodoo.jpg)">
     <footer class="source white">an IE voodoo doll<br>SOURCE: flickr.com/photos/evilnickname</footer>
   </slide>
@@ -209,30 +226,29 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>CanIUse</h2>
     </hgroup>
     <article>
-      <table>
-        <tr><td><img src="" alt="Chrome" title="Chrome"></td><td class="passes">OK</td></tr>
-        <tr><td><img src="" alt="Firefox" title="Firefox"></td><td class="passes">OK</td></tr>
-        <tr><td><img src="" alt="Safari" title="Safari"></td><td class="with-warnings">Partial</td></tr>
-        <tr><td><img src="" alt="Opera" title="Opera"></td><td class="with-warnings">Partial</td></tr>
-        <tr><td><img src="" alt="Internet Explorer" title="Internet Explorer"></td><td class="fails">None</td></tr>
+      <table class="stats">
+        <tr><td><img src="images/browsers/chrome.png" alt="Chrome" title="Chrome"></td><td class="passes">OK</td><td>--</td></tr>
+        <tr><td><img src="images/browsers/firefox.png" alt="Firefox" title="Firefox"></td><td class="passes">OK</td><td>update to document.register needed</td></tr>
+        <tr><td><img src="images/browsers/opera.png" alt="Opera" title="Opera"></td><td class="partial">Partial</td><td>using Blink, a step behind Chrome</td></tr>
+        <tr><td><img src="images/browsers/safari.png" alt="Safari" title="Safari"></td><td class="fails">None</td><td>--</td></tr>
+        <tr><td><img src="images/browsers/ie.png" alt="Internet Explorer" title="Internet Explorer"></td><td class="fails">None</td><td>--</td></tr>
       </table>
     </article>
+    <footer class="source">SOURCE: http://jonrimmer.github.io/are-we-componentized-yet</footer>
   </slide>
 
   <slide>
     <hgroup>
       <h2>Global Browser Stats</h2>
     </hgroup>
-    <article>
-      TODO: global browser stats here showing breakdown by supports / doesn't
+    <article class="flexbox vcenter">
+      <img src="images/browser_stats.png" alt="Browser share statistics showing Safari and IE at a combined 63%" title="Browser share statistics showing Safari and IE at a combined 63%">
     </article>
+    <footer class="source">SOURCE: NetMarketShare</footer>
   </slide>
 
-  <slide>
-    <article class="flexbox vcenter">
-      <img src="images/sad_face.gif" alt="A sad face" title="A sad face">
-      <footer class="source">sad face<br>SOURCE: </footer>
-    </article>
+  <slide class="fill nobackground" style="background-image: url(images/sad_face.jpg)">
+    <footer class="source">A sad, waiting dog<br>SOURCE: flickr.com/photos/unseth</footer>
   </slide>
 
   <slide class="segue dark nobackground">
@@ -244,7 +260,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <article class="flexbox vcenter">
-      <img src="images/frameworks/nascar.png" alt="The Ember, Angular, React, and Polymer frameworks" title="The Ember, Angular, React, and Polymer frameworks">
+      <img src="images/frameworks/all.png" alt="The Ember, Angular, React, and Polymer frameworks" title="The Ember, Angular, React, and Polymer frameworks">
     </article>
   </slide>
 
@@ -254,11 +270,11 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </hgroup>
     <article>
       <pre><code class="language-html">
-        &lt;carousel&gt;
-          &lt;carousel-item&gt;one&lt;/carousel-item&gt;
-          &lt;carousel-item&gt;two&lt;/carousel-item&gt;
-          &lt;carousel-item&gt;three&lt;/carousel-item&gt;
-        &lt;/carousel&gt;
+        &lt;my-carousel&gt;
+          &lt;my-carousel-item&gt;one&lt;/my-carousel-item&gt;
+          &lt;my-carousel-item&gt;two&lt;/my-carousel-item&gt;
+          &lt;my-carousel-item&gt;three&lt;/my-carousel-item&gt;
+        &lt;/my-carousel&gt;
       </code></pre>
     </article>
   </slide>
@@ -272,99 +288,45 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Ember</h2>
+    </hgroup>
+    <article class="vcenter">
+      <iframe data-src="http://jsbin.com/povapafa/latest/embed?html,js,output"></iframe>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Ember Carousel Markup</h2>
     </hgroup>
     <article class="smaller">
       <pre data-line="2"><code class="language-html">
         &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;index&quot;&gt;
           {{#e-carousel}}
-            &lt;carousel-item&gt;one&lt;/carousel-item&gt;
-            &lt;carousel-item&gt;two&lt;/carousel-item&gt;
-            &lt;carousel-item&gt;three&lt;/carousel-item&gt;
+            &lt;e-carousel-item&gt;one&lt;/e-carousel-item&gt;
+            &lt;e-carousel-item&gt;two&lt;/e-carousel-item&gt;
+            &lt;e-carousel-item&gt;three&lt;/e-carousel-item&gt;
           {{/e-carousel}}
         &lt;/script&gt;
       </code></pre>
     </article>
-    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/povapafa/latest/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Ember Carousel Templates</h2>
+      <h2>Ember Keys</h2>
     </hgroup>
-    <article class="smaller">
-      <pre data-line="2,4,10"><code class="language-html">
-        &lt;style&gt;
-          .e-carousel .selected { color: red; }
-        &lt;/style&gt;
-        &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;components/e-carousel&quot;&gt;
-          &lt;ul class=&quot;e-carousel&quot;&gt;
-            {{#each item in items}}
-              &lt;li {{bind-attr class=&quot;item.className&quot;}}&gt;{{item.content}}&lt;/li&gt;
-            {{/each}}
-          &lt;/ul&gt;
-          &lt;content&gt;{{yield}}&lt;/content&gt;
-          &lt;button {{action &quot;previous&quot;}}&gt;Previous&lt;/button&gt;
-          &lt;button {{action &quot;next&quot;}}&gt;Next&lt;/button&gt;
-        &lt;/script&gt;
-      </code></pre>
+    <article>
+      <ul>
+        <li>Support back to IE6</li>
+        <li>A handlebar helper <code class="language-handlebars">{{#e-carousel}}</code> instantiates the component</li>
+        <li>A template named <code class="language-none">components/e-carousel</code> marks the stamped out template</li>
+        <li><code class="language-handlebars">{{yield}}</code> captures our original nodes</li>
+        <li>The JS convention: <code class="language-handlebars">{{#e-carousel}}</code> becomes <code class="language-javascript">App.ECarouselComponent = Ember.Component.extend...</code></li>
+      </ul>
     </article>
-    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Ember JavaScript 1/2</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre data-line="6,9"><code class="language-javascript">
-        App = Ember.Application.create();
-        App.IndexRoute = Ember.Route.extend({});
-        App.ECarouselComponent = Ember.Component.extend({
-          items: Ember.A([]),
-          index: 0,
-          didInsertElement: function() {
-            this._super();
-            var self = this;
-            var $items = this.$(&apos;content carousel-item&apos;);
-            $items.hide();
-            $items.each(function(idx, item) {
-              self.items.pushObject(Ember.Object.create({
-                className: &apos;&apos;,
-                content: self.$(item).html()
-              }));
-            });
-            $items.remove();
-            this.go(0);
-          },
-          /* ... */
-      </code></pre>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Ember JavaScript 2/2</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre><code class="language-javascript" data-indent="  ">
-          /* ... */
-          actions: {
-            previous: function() { this.go(this.get(&apos;index&apos;) - 1); },
-            next: function() { this.go(this.get(&apos;index&apos;) + 1); }
-          },
-          go: function(idx) {
-            if (idx &gt;= this.items.length) idx = 0;
-            if (idx &lt; 0) idx = this.items.length - 1;
-            this.items.objectAt(this.get(&apos;index&apos;)).set(&apos;className&apos;, &apos;&apos;);
-            this.items.objectAt(idx).set(&apos;className&apos;, &apos;selected&apos;);
-            this.set(&apos;index&apos;, idx);
-          }
-        });
-      </code></pre>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/povapafa/1/">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/povapafa/latest/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
@@ -376,103 +338,43 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Angular</h2>
+    </hgroup>
+    <article class="vcenter">
+      <iframe data-src="http://jsbin.com/gutilo/latest/embed?html,js,output"></iframe>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>AngularJS Carousel Markup</h2>
     </hgroup>
     <article class="smaller">
       <pre data-line="1"><code class="language-html">
-        &lt;carousel ang-component ang-carousel&gt;
-          &lt;carousel-item&gt;one&lt;/carousel-item&gt;
-          &lt;carousel-item&gt;two&lt;/carousel-item&gt;
-          &lt;carousel-item&gt;three&lt;/carousel-item&gt;
-        &lt;/carousel&gt;
+        &lt;ang-carousel ang-component&gt;
+          &lt;ang-carousel-item&gt;one&lt;/ang-carousel-item&gt;
+          &lt;ang-carousel-item&gt;two&lt;/ang-carousel-item&gt;
+          &lt;ang-carousel-item&gt;three&lt;/ang-carousel-item&gt;
+        &lt;/ang-carousel&gt;
       </code></pre>
     </article>
-    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>AngularJS Carousel Element</h2>
+      <h2>AngularJS Keys</h2>
     </hgroup>
-    <article class="smaller">
-      <pre data-line="5"><code class="language-html">
-        &lt;style&gt;
-          ang-template { display: none; }
-          carousel .selected { color: red; }
-        &lt;/style&gt;
-        &lt;ang-template for=&quot;ang-carousel&quot;&gt;
-          &lt;ul&gt;
-            &lt;li ng-repeat=&quot;item in items&quot; ng-class=&quot;getClass($index)&quot;&gt;
-              {{item}}
-            &lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;button ng-click=&quot;previous($event)&quot;&gt;Previous&lt;/button&gt;
-          &lt;button ng-click=&quot;next($event)&quot;&gt;Next&lt;/button&gt;
-        &lt;/ang-template&gt;
-      </code></pre>
+    <article>
+      <ul>
+        <li>1.3+ (IE9+) / 1.2 (IE8+)</li>
+        <li>Directives with a <code class="language-none">restrict</code> type of "E" parallel custom elements</li>
+        <li>A custom tag such as <code class="language-html">&lt;ang-template for=&quot;ang-*&quot;&gt;</code> can stamp out your templates</li>
+        <li>A bootloader can call <code class="language-javascript">angular.bootstrap</code> on page load</li>
+        <li>The <code class="language-javascript">$transclude</code> function can give you access to the original content in your directive</li>
+      </ul>
     </article>
-    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>AngularJS JavaScript 1/2</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre data-line="1,9,15"><code class="language-javascript">
-        angular.element(document).ready(function() {
-          var els = document.querySelectorAll(&apos;*[ang-component]&apos;);
-          for (var i = 0, len = els.length; i &lt; len; i++ ) {
-            angular.bootstrap(els[i], [els[i].tagName.toLowerCase()]);
-          }
-        });
-
-        angular.module(&apos;carousel&apos;, [])
-        .directive(&apos;angCarousel&apos;, function () {
-          var tmpl = document.querySelector(&apos;ang-template[for=&quot;ang-carousel&quot;]&apos;);
-          return {
-            restrict: &apos;A&apos;,
-            template: tmpl.innerHTML,
-            transclude: true,
-            controller: function($scope, $transclude) {
-              var index = 0;
-              function go(idx) {
-                if (idx &gt;= $scope.items.length) idx = 0;
-                if (idx &lt; 0) idx = $scope.items.length - 1;
-                index = idx;
-              }
-              /* ... */
-      </code></pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>AngularJS JavaScript 2/2</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre data-line="8"><code class="language-javascript" data-indent="      ">
-              /* ... */
-              $scope.items = [];
-              $scope.previous = function() { go(index - 1); };
-              $scope.next = function() { go(index + 1); };
-              $scope.getClass = function(idx) {
-                return (idx === index) ? &apos;selected&apos; : &apos;&apos;;
-              };
-              $transclude(function(clone) {
-                var div = angular.element(document.createElement(&apos;div&apos;));
-                var nodes = div.append(clone).find(&apos;carousel-item&apos;);
-
-                for (var i = 0, len = nodes.length; i &lt; len; i++) {
-                  $scope.items.push(nodes[i].innerHTML);
-                }
-              });
-            }
-          };
-        });
-      </code></pre>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/pozozako/2/">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
@@ -480,6 +382,15 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <img src="images/frameworks/polymer.png" alt="The Polymer logo" title="The Polymer logo">
     </article>
     <footer class="source">Polymer<br><a href="http://www.polymer-project.org/">http://www.polymer-project.org/</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Polymer</h2>
+    </hgroup>
+    <article class="vcenter">
+      <iframe data-src="http://jsbin.com/zitur/latest/embed?html,output"></iframe>
+    </article>
   </slide>
 
   <slide>
@@ -495,88 +406,59 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;/p-carousel&gt;
       </code></pre>
     </article>
-    <footer class="source"><a href="http://jsbin.com/sixiwora/3/">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Polymer Carousel Element</h2>
+      <h2>Polymer Keys</h2>
     </hgroup>
-    <article class="smaller">
-      <pre data-line="1,10,14"><code class="language-html">
-        &lt;polymer-element name=&quot;p-carousel&quot; noscript&gt;
-          &lt;template&gt;
-            &lt;ul&gt;
-              &lt;template repeat=&quot;{{ item in items }}&quot;&gt;
-                &lt;li class=&quot;{{ item.className }}&quot;&gt;{{ item.content }}&lt;/li&gt;
-              &lt;/template&gt;
-            &lt;/ul&gt;
-            &lt;button id=&quot;prev&quot;&gt;Previous&lt;/button&gt;
-            &lt;button id=&quot;next&quot;&gt;Next&lt;/button&gt;
-            &lt;style&gt;
-              .selected { color: red; }
-              ::content * { display: none; }
-            &lt;/style&gt;
-            &lt;content id=&quot;content&quot; select=&quot;p-carousel-item&quot;&gt;&lt;/content&gt;
-          &lt;/template&gt;
-          &lt;script&gt;
-            /* ... see next slide ... */
-          &lt;/script&gt;
-        &lt;/polymer-element&gt;
-      </code></pre>
+    <article>
+      <ul>
+        <li><code class="language-html">&lt;polymer-element name=&quot;*&quot; noscript&gt;</code> defines a custom element</li>
+        <li>All <code class="language-html">&lt;script&gt;</code> and <code class="language-html">&lt;style&gt;</code> tags are restricted in scope</li>
+        <li>Uses polyfills for modern Web Components items such as the Shadow DOM</li>
     </article>
-    <footer class="source"><a href="http://jsbin.com/sixiwora">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/frameworks/react.png" alt="The React logo" title="The React logo">
+    </article>
+    <footer class="source">React<br><a href="http://facebook.github.io/react/">http://facebook.github.io/react/</a></footer>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Polymer Carousel JavaScript (1/2)</h2>
+      <h2>React</h2>
     </hgroup>
-    <article class="smaller">
-      <pre><code class="language-javascript">
-        Polymer({
-          go: function(idx) {
-            if (idx &gt;= this.items.length) { idx = 0; }
-            if (idx &lt; 0) { idx = this.items.length - 1; }
-            this.items[this.index].className = &apos;&apos;;
-            this.items[idx].className = &apos;selected&apos;;
-            this.index = idx;
-          },
-          /* ... */
-      </code></pre>
+    <article class="vcenter">
+      <iframe data-src="http://jsbin.com/durex/latest/embed?html,output"></iframe>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Polymer Carousel JavaScript (2/2)</h2>
+      <h2>React (+ReactiveElements) Keys</h2>
     </hgroup>
-    <article class="smaller">
-      <pre data-line="4,13"><code class="language-javascript" data-indent="  ">
-          /* ... */
-          attached: function() {
-            var self = this,
-                contents = this.$.content.getDistributedNodes();
-            this.items = [];
-            this.index = 0;
-            for (var i = 0, len = contents.length; i &lt; len; i++) {
-              this.items.push({
-                className: &apos;&apos;,
-                content: contents[i].innerHTML
-              });
-            }
-            this.$.prev.addEventListener(&apos;click&apos;, function() {
-              self.go(self.index - 1);
-            });
-            this.$.next.addEventListener(&apos;click&apos;, function() {
-              self.go(self.index + 1);
-            });
-            this.go(0);
-          }
-        });
-      </code></pre>
+    <article>
+      <ul>
+        <li>Can use 100% React (if you don't want DOM custom elements)</li>
+        <li>JSX allows for powerful manipulation of the DOM and CSS</li>
+      </ul>
     </article>
-    <footer class="source"><a href="http://jsbin.com/sixiwora">view live example on jsbin</a></footer>
+    <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/frameworks/all.png" alt="The Ember, Angular, React, and Polymer frameworks" title="The Ember, Angular, React, and Polymer frameworks">
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
+    <footer class="source white">a picture of Alduin, the dragon<br>SOURCE: elderscrolls.wikia.com</footer>
   </slide>
 
   <slide class="segue dark quote nobackground">
@@ -592,347 +474,93 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </article>
   </slide>
 
-<!--
-  <slide>
-    <hgroup>
-      <h2>Slide with Bullets</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
-        <li>Title capitalization is title case
-          <ul>
-            <li>Subtitle capitalization is title case</li>
-          </ul>
-        </li>
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
-      </ul>
+  <slide class="segue dark quote nobackground">
+    <aside class="logobar right bottom"><img src="images/conference/open_web_camp_logo_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Ember templates should support elements implemented in Polymer.
+      </q>
+      <div class="author">
+        Yehuda Katz<br>
+        Ember Team
+      </div>
     </article>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Slide with Bullets that Build</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'b' toggles blank overlay</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
-      </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-      </ul>
-    </article>
+  <slide class="fill nobackground" style="background-image: url(images/yodawg.png)">
+    <footer class="source" style="opacity:0">Yo Dawg, I heard you like Web Components. So I put a framework in your framework, so you can script while you script.</footer>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
+    <footer class="source white">a picture of Alduin, the dragon<br>SOURCE: elderscrolls.wikia.com</footer>
   </slide>
 
   <slide>
-    <hgroup>
-      <h2>Slide with (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>All <a href="http://google.com">links</a> open in new tabs.</li>
-        <li>To change that this, add <code>target="_self"</code> to the link.</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide hidden>
-    Hidden slides are left out of the presentation.
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (with Subtitle Placeholder)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
-      <pre class="prettyprint" data-lang="javascript">
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    <b>for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }</b>
-  }
-&lt;/script&gt;
-</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
-// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
-  }
-}
-</pre>
-<pre class="prettyprint" data-lang="css">
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-&lt;/style&gt;
-</pre>
-<pre class="prettyprint" data-lang="html">
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;title>My Awesome Page&lt;/title>
-&lt;/head>
-&lt;body>
-  &lt;p&gt;Hello world&lt;/p&gt;
-&lt;body>
-&lt;/html>
-</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Point I wanted to make #1</li>
-          <li>Point I wanted to make #2</li>
-          <li>Point I wanted to make #3</li>
-          <li>Example <a href="#">link</a> in notes.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Slide with Speaker Notes</h2>
-    </hgroup>
-    <article>
-      <p>Press 'p' to toggle speaker notes.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>See this amazing link: <a href="http://www.google.com">link</a>.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Presenter Mode</h2>
-    </hgroup>
-    <article>
-      <p>Add <code><a href="?presentme=true" target="_self">?presentme=true</a></code> to the URL to enabled presenter mode.
-      This setting is sticky, meaning refreshing the page will persist presenter
-      mode.</p>
-      <p>Hit <code><a href="?presentme=false" target="_self">?presentme=false</a></code> to disable presenter mode.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image</h2>
-    </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image (Centered horz/vert)</h2>
-    </hgroup>
     <article class="flexbox vcenter">
-      <img src="images/barchart.png" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A (Smaller Text)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article class="smaller">
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option B</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table class="rows">
-        <tr>
-          <th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide Styles</h2>
-    </hgroup>
-    <article class="smaller">
-      <div class="columns-2">
-        <ul>
-          <li class="red">class="red"</li>
-          <li class="red2">class="red2"</li>
-          <li class="red3">class="red3"</li>
-          <li class="blue">class="blue"</li>
-          <li class="blue2">class="blue2"</li>
-          <li class="blue3">class="blue3"</li>
-          <li class="green">class="green"</li>
-          <li class="green2">class="green2"</li>
-        </ul>
-        <ul>
-          <li class="green3">class="green3"</li>
-          <li class="yellow">class="yellow"</li>
-          <li class="yellow2">class="yellow2"</li>
-          <li class="yellow3">class="yellow3"</li>
-          <li class="gray">class="gray"</li>
-          <li class="gray2">class="gray2"</li>
-          <li class="gray3">class="gray3"</li>
-          <li class="gray4">class="gray4"</li>
-        </ul>
-      </div>
-      <div class="centered" style="margin-top:2em">
-        I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-      </div>
+      <img class="auto-fadein" src="images/fat_dragon.gif" alt="A caricature of a fat dragon" title="A caricature of a fat dragon">
+      <footer class="source">fat dragon<br>SOURCE: aoth.deviantart.com</footer>
     </article>
   </slide>
 
   <slide class="segue dark nobackground">
-    <aside class="logobar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>For a Better Web</h2>
+      <h3>Responsible Web Component Use</h3>
     </hgroup>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
+  <slide>
     <hgroup>
-      <h2 class="white">Full Image (with Optional Header)</h2>
+      <h2>An Old Friend</h2>
     </hgroup>
-    <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <aside class="logobar right bottom"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <q>
-        This is an example of quote text.
-      </q>
-      <div class="author">
-        Name<br>
-        Company
-      </div>
+    <article class="flexbox vcenter auto-fadein">
+      <img src="images/flash_player.jpg" alt="Macromedia Flash logo" title="Macromedia Flash logo">
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Slide with Iframe</h2>
+      <h2>Why Flash?</h2>
     </hgroup>
     <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
+      <ul>
+        <li>Has a component library</li>
+        <li>Allows nesting of components for DRY</li>
+        <li>Uses ECMAScript (just like JavaScript)</li>
+      </ul>
+      <ul>
+        <li>Plagued by bloat</li>
+        <li>Huge component hierarchies</li>
+      </ul>
+      <p>We have a few new tricks this time</p>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/bower.png)">
+    <footer class="source" style="opacity:0">the bower.io logo</footer>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/gulpgrunt.png)">
+    <footer class="source white" style="opacity:0">the gulp and grunt logos combined<br>intuitivecompany.com</footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter auto-fadein">
+      <img src="images/atom.png" alt="the atom.io logo" title="the atom.io logo">
     </article>
   </slide>
 
   <slide>
-    <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
+    <article class="flexbox vcenter">
+      <img src="images/captain_planet.jpg" alt="Captain Planet: the power is yours!" title="Captain Planet: the power is yours!">
     </article>
   </slide>
--->
 
   <slide class="thank-you-slide segue nobackground">
     <aside class="logobar right"><img src="images/conference/open_web_camp_logo_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
-      <h2>&lt;Thank You!&gt;</h2>
-      <p>Important contact information goes here.</p>
+      <h2>&lt;thank-you&gt;</h2>
+      <p>View these slides online @ felocity.com/owc2014</p>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->

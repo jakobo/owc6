@@ -5,7 +5,40 @@ $social-tags: "#owc6";
 $logobar-bg-color: #333333;
 $small-icon: image-url("conference/open_web_camp_logo_30.png");
 
+// get access to the defaults
+@import "variables";
+
 // custom styles
 #about-me img {
   @include border-radius(50%);
+}
+
+.widgets .attributed {
+  position: absolute;
+  right: 0px;
+  top: 0px + $slide-top-bottom-padding / 2;
+  opacity: 0.3;
+}
+
+.stats {
+  td {
+    text-align: center;
+    font-weight: bold;
+  }
+  td:last-child {
+    text-align: left;
+    font-weight: normal;
+  }
+  .passes {
+    color: #006600;
+    background-color: #66ff66;
+  }
+  .partial {
+    color: #666600;
+    background-color: #ffff66;
+  }
+  .fails {
+    color: #660000;
+    background-color: #ff6666;
+  }
 }
