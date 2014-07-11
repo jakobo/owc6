@@ -435,6 +435,11 @@ slide.fill {
   @include background-size(cover);
 }
 
+/* Adjustable variants */
+article.scrollable {
+  overflow-y: scroll;
+}
+
 /* Size variants */
 
 article.smaller {
@@ -620,6 +625,10 @@ article.smaller {
   position: absolute;
   bottom: $slide-top-bottom-padding + 30px;
   left: $slide-left-right-padding;
+
+  &.a11y {
+    opacity: 0;
+  }
 }
 
 .centered {

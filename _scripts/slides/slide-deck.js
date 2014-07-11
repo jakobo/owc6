@@ -369,6 +369,27 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     }
   }
 
+  /* Load up the Attribution Slide */
+  if (document.querySelectorAll('slide[data-attributions]').length) {
+    // build an attribution slide
+    var citations = [];
+    var slides = document.getElementsByTagName('slide');
+    var cite = null;
+    for (var i = 0, len = slides.length; i < len; i++) {
+      cite = slides[i].querySelector('footer.source cite');
+      if (cite) {
+        citations.push('Slide ' + i + ': ' + cite.parentNode.innerHTML);
+      }
+    }
+
+    slides = document.querySelectorAll('slide[data-attributions]');
+    for (var i = 0, len = slides.length; i < len; i++) {
+      slides[i].innerHTML = '<hgroup><h2>Sources</h2></hgroup><article class="flexbox vleft scrollable"><ul><li>' +
+        ((citations.length) ? citations.join('</li><li>') : 'No citations') +
+        '</li></ul></article>';
+    }
+  }
+
   /* Left/Right tap areas. Default to including. */
   if (!!!('enableSlideAreas' in settings) || settings.enableSlideAreas) {
     var el = document.createElement('div');
