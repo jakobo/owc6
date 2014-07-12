@@ -60,7 +60,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Not Today</h2>
     </hgroup>
     <article>
-      <ul class="build">
+      <ul>
         <li>A W3C spec sing-a-long</li>
         <li>A detailed walkthrough of the Shadow DOM methods</li>
         <li>Any sort of opinion about what is the "best" framework</li>
@@ -95,6 +95,16 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter">
       <img src="images/me/jakob_heuser.jpg" alt="Jakob Heuser" title="Jakob Heuser">
     </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Principal Web Developer at LinkedIn</li>
+          <li>Deprecation of YUI for jQuery</li>
+          <li>Adopting emerging standards</li>
+          <li>Not breaking 10 years worth of legacy code</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide class="segue dark nobackground">
@@ -119,9 +129,29 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;/html&gt;
       </code></pre>
     </article>
+    <aside class="note">
+      <section>
+        <p>In the beginning the web was simple, aside from the doctype</p>
+        <ul>
+          <li>Tags made sense</li>
+          <li>Concerns were separated</li>
+          <li>"Animation" was the realm of GIFs and Flash</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/what_happened.jpg)">
+    <aside class="note">
+      <section>
+        <p>So, what happened?</p>
+        <ul>
+          <li>The creation of "widgets"</li>
+          <li>The packaging of "widgets" began to tie HTML, CSS, and JS together</li>
+          <li>Every library did this (and most still do)</li>
+        </ul>
+      </section>
+    </aside>
     <footer class="source a11y">what happened next? <cite><a href="http://twofour.co.uk">http://twofour.co.uk</a></cite></footer>
   </slide>
 
@@ -154,15 +184,47 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/fat_whale.jpg)">
+    <aside class="note">
+      <section>
+        <p>The web got fatter, slower, and more complex</p>
+      </section>
+    </aside>
     <footer class="source a11y">a picture a chubby looking beluga whale <cite><a href="http://flickr.com/photos/jspad">http://flickr.com/photos/jspad</a></cite></footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/linkedin_markup.png)">
+    <aside class="note">
+      <section>
+        <p>This is a screenshot of LinkedIn's Markup</p>
+        <ul>
+          <li>Gratuitous use of div tags</li>
+          <li>Inert script tags that indicate where to attach functionality</li>
+          <li>Severely bad nesting: 11 layers just to get to the profile photo</li>
+        </ul>
+      </section>
+    </aside>
     <footer class="source a11y">a screenshot of LinkedIn's markup</footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/dirty_white_trash_sm.jpg)">
+    <aside class="note">
+      <section>
+        <p>Let's be honest. We've taken trash, and made it look beautiful in the right light.</p>
+      </section>
+    </aside>
     <footer class="source a11y">"Dirty White Trash" by &copy; Tim Noble &amp; Sue Webster <cite><a href="http://www.timnobleandsuewebster.com/">http://www.timnobleandsuewebster.com/</a></cite></footer>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <span>Simple</span>
+    </article>
+    <aside class="note">
+      <section>
+        <p>Wouldn't it be great if we could go back to how things were? Make them simpler?</p>
+        <p>And in doing so, keep the rich interactive web we've been building?</p>
+      </section>
+    </aside>
   </slide>
 
   <slide>
@@ -177,6 +239,11 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;twttr-typeahead source=&quot;http://mysite.com/api/&quot;&gt;
       </code></pre>
     </article>
+    <aside class="note">
+      <section>
+        <p>Where Twitter Bootstrap's typeahead can go anywhere with a single tag</p>
+      </section>
+    </aside>
   </slide>
 
   <slide>
@@ -196,18 +263,28 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;/todos-app&gt;
       </code></pre>
     </article>
+    <aside class="note">
+      <section>
+        <p>Where the infamous TodoMVC app can be reduced down to its obvious pieces</p>
+      </section>
+    </aside>
   </slide>
 
   <slide class="segue dark quote nobackground">
     <aside class="logobar right bottom"><img src="images/conference/open_web_camp_logo_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <q>
-        Composability unlocks the evolving web
+        A return to semantic tags marks the start of the composable web
       </q>
     </article>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/orgs/web_components_logo.svg)">
+    <aside class="note">
+      <section>
+        <p>The Web Components specification (this is its icon) is the enabler of this functionality</p>
+      </section>
+    </aside>
     <footer class="source a11y">web components logo</footer>
   </slide>
 
@@ -215,6 +292,24 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter">
       <img src="images/orgs/w3c_logo.png" alt="W3C Logo" title="W3C Logo">
     </article>
+    <aside class="note">
+      <section>
+        <p>By the W3C</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/orgs/web_components_logo.svg)">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>consists of multiple sepcifications</li>
+          <li>goal is to take custom tags and extend them</li>
+          <li>allowing them to encapsulate a localized copy of HTML/CSS/JS</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source a11y">web components logo</footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/ie_voodoo.jpg)">
@@ -234,6 +329,11 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         <tr><td><img src="images/browsers/ie.png" alt="Internet Explorer" title="Internet Explorer"></td><td class="fails">None</td><td>--</td></tr>
       </table>
     </article>
+    <aside class="note">
+      <section>
+        <p>One big problem. While we would like to pick on IE, they are not alone here</p>
+      </section>
+    </aside>
     <footer class="source">http://jonrimmer.github.io/are-we-componentized-yet</footer>
   </slide>
 
@@ -244,10 +344,20 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter">
       <img src="images/browser_stats.png" alt="Browser share statistics showing Safari and IE at a combined 63%" title="Browser share statistics showing Safari and IE at a combined 63%">
     </article>
+    <aside class="note">
+      <section>
+        <p>Between IE and Safari, that's over 60% of the global market</p>
+      </section>
+    </aside>
     <footer class="source">NetMarketShare</footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/sad_face.jpg)">
+    <aside class="note">
+      <section>
+        <p>That means we are waiting a while. At least for official native support.</p>
+      </section>
+    </aside>
     <footer class="source a11y">A sad, waiting dog <cite><a href="http://flickr.com/photos/unseth">http://flickr.com/photos/unseth</a></cite></footer>
   </slide>
 
@@ -262,6 +372,17 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter">
       <img src="images/frameworks/all.png" alt="The Ember, Angular, React, and Polymer frameworks" title="The Ember, Angular, React, and Polymer frameworks">
     </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>All is not lost! There are several frameworks working to bring us Web Component like functionality today</li>
+          <li>Ember / Angular / React / Polymer</li>
+          <li>Going to show working examples (if internet is kind)</li>
+          <li>Talk briefly about their differences</li>
+          <li>JSBins and code are in the slide deck</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide>
@@ -277,6 +398,16 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         &lt;/my-carousel&gt;
       </code></pre>
     </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>This is our goal</li>
+          <li>A custom element, called my-carousel (replace my- with prefix of choice)</li>
+          <li>Put items for initialization inside the my-carousel</li>
+          <li>Have this map to a suite of functionality</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide>
@@ -300,7 +431,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Ember Carousel Markup</h2>
     </hgroup>
     <article class="smaller">
-      <pre data-line="2"><code class="language-html">
+      <pre><code class="language-html">
         &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;index&quot;&gt;
           {{#e-carousel}}
             &lt;e-carousel-item&gt;one&lt;/e-carousel-item&gt;
@@ -315,11 +446,36 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Ember Carousel Implementation</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-html">
+        &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;components/e-carousel&quot;&gt;
+          &lt;content&gt;{{yield}}&lt;/content&gt;
+          &lt;-- ... --&gt;
+        &lt;/script&gt;
+      </code></pre>
+      <pre><code class="language-javascript">
+        App.ECarouselComponent = Ember.Component.extend({
+          var $items = this.$(&apos;content e-carousel-item&apos;);
+          $items.hide();
+          $items.each(function(idx, item) {
+            // ...
+          });
+          // ...
+        });
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Ember Keys</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Support back to IE6</li>
+        <li>Support back to IE6 (though performance is slow &lt; IE 8)</li>
         <li>A handlebar helper <code class="language-handlebars">{{#e-carousel}}</code> instantiates the component</li>
         <li>A template named <code class="language-none">components/e-carousel</code> marks the stamped out template</li>
         <li><code class="language-handlebars">{{yield}}</code> captures our original nodes</li>
@@ -350,12 +506,42 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>AngularJS Carousel Markup</h2>
     </hgroup>
     <article class="smaller">
-      <pre data-line="1"><code class="language-html">
+      <pre><code class="language-html">
         &lt;ang-carousel ang-component&gt;
           &lt;ang-carousel-item&gt;one&lt;/ang-carousel-item&gt;
           &lt;ang-carousel-item&gt;two&lt;/ang-carousel-item&gt;
           &lt;ang-carousel-item&gt;three&lt;/ang-carousel-item&gt;
         &lt;/ang-carousel&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AngularJS Implementation</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-html">
+        &lt;ang-template for=&quot;ang-carousel&quot;&gt;
+          &lt;-- ... --&gt;
+        &lt;/ang-template&gt;
+      </code></pre>
+      <pre><code class="language-javascript">
+        angular.module(&apos;angCarousel&apos;, [])
+        .directive(&apos;angCarousel&apos;, function () {
+          var tmpl = document.querySelector(&apos;ang-template[for=&quot;ang-carousel&quot;]&apos;);
+          return {
+            restrict: &apos;E&apos;,
+            transclude: true,
+            controller: function($scope, $transclude) {
+              $transclude(function(originalNodes) {
+                // ...
+              });
+              // ...
+            }
+          };
+        });
       </code></pre>
     </article>
     <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
@@ -398,12 +584,38 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Polymer Carousel Markup</h2>
     </hgroup>
     <article class="smaller">
-      <pre data-line="1"><code class="language-html">
+      <pre><code class="language-html">
         &lt;p-carousel&gt;
           &lt;p-carousel-item&gt;one&lt;/p-carousel-item&gt;
           &lt;p-carousel-item&gt;two&lt;/p-carousel-item&gt;
           &lt;p-carousel-item&gt;three&lt;/p-carousel-item&gt;
         &lt;/p-carousel&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Polymer Implementation</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-html">
+        &lt;polymer-element name=&quot;p-carousel&quot; noscript&gt;
+          &lt;template&gt;
+            &lt;content id=&quot;content&quot; select=&quot;p-carousel-item&quot;&gt;&lt;/content&gt;
+            &lt;!-- ... --&gt;
+          &lt;/template&gt;
+          &lt;script&gt;
+            Polymer({
+              attached: function() {
+                var self = this,
+                    contents = this.$.content.getDistributedNodes();
+                // ...
+              }
+            });
+          &lt;/script&gt;
+        &lt;/polymer-element&gt;
       </code></pre>
     </article>
     <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
@@ -440,13 +652,55 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
-      <h2>React (+ReactiveElements) Keys</h2>
+      <h2>React<sup>1</sup> Carousel Markup</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-html">
+        &lt;r-carousel&gt;
+          &lt;r-carousel-item&gt;one&lt;/r-carousel-item&gt;
+          &lt;r-carousel-item&gt;two&lt;/r-carousel-item&gt;
+          &lt;r-carousel-item&gt;three&lt;/r-carousel-item&gt;
+        &lt;/r-carousel&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>React<sup>1</sup> Implementation</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre><code class="language-html">
+        &lt;script type=&quot;text/jsx&quot;&gt;
+        /** @jsx React.DOM */
+        var rCarousel = React.createClass({
+          getInitialState: function() {
+            var items = [], results = this.props._content.querySelectorAll(&apos;r-carousel-item&apos;);
+            // ...
+            return {index: 0, items: items};
+          },
+          render: function() {
+          }
+        });
+
+        document.registerReact(&apos;r-carousel&apos;, rCarousel);
+        &lt;/script&gt;
+      </code></pre>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>React Keys</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Reactive Elements: github.com/PixelsCommander/ReactiveElements</li>
-        <li>Can use 100% React (if you don't want DOM custom elements)</li>
+        <li>(1) Reactive Elements: github.com/PixelsCommander/ReactiveElements for DOM implementation</li>
+        <li>Can use 100% React (if you want to use React top to bottom)</li>
         <li>JSX allows for powerful manipulation of the DOM and CSS</li>
+        <li>Strong encapsulation model</li>
       </ul>
     </article>
     <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
@@ -459,6 +713,12 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
+    <aside class="note">
+      <section>
+        <p>Web Components are going to be a beast and change the way we build UIs</p>
+        <p>You can even share between frameworks</p>
+      </section>
+    </aside>
     <footer class="source a11y">a picture of Alduin, the dragon <cite><a href="http://elderscrolls.wikia.com">http://elderscrolls.wikia.com</a></cite></footer>
   </slide>
 
@@ -489,16 +749,31 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/yodawg.png)">
+    <aside class="note">
+      <section>
+        <p>Though nobody is proposing this as a solid idea yet</p>
+      </section>
+    </aside>
     <footer class="source a11y">Yo Dawg, I heard you like Web Components. So I put a framework in your framework, so you can script while you script.</footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/mean_dragon.jpg)">
+    <aside class="note">
+      <section>
+        <p>Otherwise, how we build UIs will quickly go from this</p>
+      </section>
+    </aside>
     <footer class="source a11y">a picture of Alduin, the dragon <cite><a href="http://elderscrolls.wikia.com">http://elderscrolls.wikia.com</a></cite></footer>
   </slide>
 
   <slide>
     <article class="flexbox vcenter">
       <img class="auto-fadein" src="images/fat_dragon.gif" alt="A caricature of a fat dragon" title="A caricature of a fat dragon">
+      <aside class="note">
+        <section>
+          <p>To this</p>
+        </section>
+      </aside>
       <footer class="source a11y">fat dragon <cite><a href="http://aoth.deviantart.com">http://aoth.deviantart.com</a></cite></footer>
     </article>
   </slide>
@@ -517,6 +792,15 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter auto-fadein">
       <img src="images/flash_player.jpg" alt="Macromedia Flash logo" title="Macromedia Flash logo">
     </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>We have the advantage of learning from those who came before us</li>
+          <li>Yes, Flash (as we knew it) is pretty close to dead thanks to the mobile web</li>
+          <li>That doesn't mean it can't be a good teacher</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide>
@@ -526,22 +810,40 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article>
       <ul>
         <li>Has a component library</li>
-        <li>Allows nesting of components for DRY</li>
+        <li>Allows nesting of components for DRY philosophy</li>
         <li>Uses ECMAScript (just like JavaScript)</li>
       </ul>
       <ul>
-        <li>Plagued by bloat</li>
-        <li>Huge component hierarchies</li>
+        <li>Is plagued by bloat</li>
+        <li>Has huge component hierarchies</li>
       </ul>
       <p>We have a few new tricks this time</p>
     </article>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/bower.png)">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Bower is the repository of choice for the front end in a Web Component world</li>
+          <li>Its "main" property can denote the entry point import</li>
+          <li>Its repository structure is flat, forcing you to resolve to a single version</li>
+        </ul>
+      </section>
+    </aside>
     <footer class="source a11y">the bower.io logo</footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/gulpgrunt.png)">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Gulp and Grunt allow us to write build tools in JavaScript</li>
+          <li>We will likely see Web Component assembly tools for both</li>
+          <li>There's also fez, broccoli, and brunch. I expect them to follow on to</li>
+        </ul>
+      </section>
+    </aside>
     <footer class="source a11y">the gulp and grunt logos combined <cite><a href="http://intuitivecompany.com">http://intuitivecompany.com</a></cite></footer>
   </slide>
 
@@ -549,9 +851,27 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article class="flexbox vcenter auto-fadein">
       <img src="images/atom.png" alt="the atom.io logo" title="the atom.io logo">
     </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Our IDEs have gotten better, more extendable</li>
+          <li>Plugins for Web Components will come easily</li>
+          <li>Coupled with Bower, following the component hierarchy will be much simpler</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/hero_kid.jpg)">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>So go forth. Make components. Use your favorite framework. You can go from zero to prototype in about 5 hours with any of these.</li>
+          <li>We are on the cusp of a really awesome time.</li>
+          <li>Just please, nobody make x-button, we've got a pretty good button already</li>
+        </ul>
+      </section>
+    </aside>
     <footer class="source a11y">a child posing in a superhero outfit <cite><a href="http://healforrealnow.com">http://healforrealnow.com</a></cite></footer>
   </slide>
 
@@ -580,7 +900,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 </slides>
 
 <script src="js/bundle.js" data-manual></script>
-<!-- Try a chrome frame on antiquated IE lt 9 (10 doesn't have these) -->
+<!-- Try a chrome frame on antiquated IE lt 9 (10 doesn't have conditional comments) -->
 <!--[if IE]>
   <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
   <script>CFInstall.check({mode: 'overlay'});</script>

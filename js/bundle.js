@@ -739,7 +739,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
 
     slides = document.querySelectorAll('slide[data-attributions]');
     for (var i = 0, len = slides.length; i < len; i++) {
-      slides[i].innerHTML = '<hgroup><h2>Sources</h2></hgroup><article class="flexbox vleft scrollable"><ul><li>' +
+      slides[i].innerHTML = '<hgroup><h2>Sources</h2></hgroup><article class="flexbox vleft scrollable smaller"><ul><li>' +
         ((citations.length) ? citations.join('</li><li>') : 'No citations') +
         '</li></ul></article>';
     }

@@ -77,6 +77,21 @@ slides > slide {
   //@include box-shadow(5px 5px 20px $gray-4);
   @include transition(all 0.6s ease-in-out);
 
+  h2 sup {
+    vertical-align: top;
+    font-size: 0.4em;
+    position: relative;
+    top: -0.2em;
+    color: $subheadline-color;
+  }
+
+  article sup {
+    vertical-align: top;
+    font-size: 0.6em;
+    top: -0.3em;
+    color: $headline-color;
+  }
+
   //$translateX: 1020px;
   //$rotateY: 30deg;
   //$rotateX: 45deg;
