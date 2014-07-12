@@ -432,6 +432,10 @@ q {
   font-size: 45px;
   line-height: 72px;
 
+  strong {
+    font-weight: bold;
+  }
+
   &:before {
     content: '“';
     position: absolute;

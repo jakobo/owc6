@@ -77,7 +77,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <h2>Not Today</h2>
     </hgroup>
     <article>
-      <ul class="build">
+      <ul class="build ">
         <li>A W3C spec sing-a-long</li>
         <li>A soapbox rant on the abuse of -webkit prefixes</li>
         <li>Dancing. Definitely no dancing</li>
@@ -289,6 +289,15 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </aside>
   </slide>
 
+  <slide class="segue dark quote nobackground">
+    <aside class="logobar right bottom"><img src="images/conference/open_web_camp_logo_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        A return to tags marks the start of the <strong>extendable web</strong>
+      </q>
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Tags Give Us</h2>
@@ -300,15 +309,6 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         <li>Configuration</li>
         <li>DOM Friendly APIs</li>
       </ul>
-    </article>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <aside class="logobar right bottom"><img src="images/conference/open_web_camp_logo_128.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <q>
-        A return to tags marks the start of the <strong>extendable web</strong>
-      </q>
     </article>
   </slide>
 
@@ -479,25 +479,9 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
-      <h2>Web Components in Ember</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>Support back to IE6 (though performance is slow &lt; IE 8)</li>
-        <li>A handlebar helper <code class="language-handlebars">{{#e-carousel}}</code> instantiates the component</li>
-        <li>A template named <code class="language-none">components/e-carousel</code> marks the stamped out template</li>
-        <li><code class="language-handlebars">{{yield}}</code> captures our original nodes</li>
-        <li>The JS convention: <code class="language-handlebars">{{#e-carousel}}</code> becomes <code class="language-javascript">App.ECarouselComponent = Ember.Component.extend...</code></li>
-      </ul>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/povapafa/latest/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>Ember Carousel Markup</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="2"><code class="language-html">
         &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;index&quot;&gt;
           {{#e-carousel}}
@@ -513,9 +497,25 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Web Components in Ember</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Support back to IE6 (though performance is slow &lt; IE 8)</li>
+        <li>A handlebar helper <code class="language-handlebars">{{#e-carousel}}</code> instantiates the component</li>
+        <li>A template named <code class="language-none">components/e-carousel</code> marks the stamped out template</li>
+        <li><code class="language-handlebars">{{yield}}</code> captures our original nodes</li>
+        <li>The JS convention: <code class="language-handlebars">{{#e-carousel}}</code> becomes <code class="language-javascript">App.ECarouselComponent = Ember.Component.extend...</code></li>
+      </ul>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/povapafa/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Ember Carousel Implementation</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="2"><code class="language-html">
         &lt;script type=&quot;text/x-handlebars&quot; data-template-name=&quot;components/e-carousel&quot;&gt;
           &lt;content&gt;{{yield}}&lt;/content&gt;
@@ -554,25 +554,9 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
-      <h2>Web Components in React</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>All browsers (including IE6+) when using React Pure (no custom elements)</li>
-        <li>IE 9+ when using Reactive Elements for Polymer/X-Tags support</li>
-        <li><a href="http://github.com/PixelsCommander/ReactiveElements">Reactive Elements</a> for DOM implementation</li>
-        <li>Can use 100% React (if you want to use React top to bottom)</li>
-        <li>JSX allows for scoped styles through JS definitions of CSS</li>
-      </ul>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>React Carousel Markup</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre><code class="language-html">
         &lt;r-carousel&gt;
           &lt;r-carousel-item&gt;one&lt;/r-carousel-item&gt;
@@ -586,9 +570,25 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Web Components in React</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>All browsers (including IE6+) when using React Pure (no custom elements)</li>
+        <li>IE 9+ when using Reactive Elements for Polymer/X-Tags support</li>
+        <li><a href="http://github.com/PixelsCommander/ReactiveElements">Reactive Elements</a> for DOM implementation</li>
+        <li>Can use 100% React (if you want to use React top to bottom)</li>
+        <li>JSX allows for scoped styles through JS definitions of CSS</li>
+      </ul>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/durex/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>React Implementation</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="6,14"><code class="language-html">
         &lt;script type=&quot;text/jsx&quot;&gt;
         /** @jsx React.DOM */
@@ -628,25 +628,9 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
-      <h2>Web Components in AngularJS</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>Use 1.3+ for IE9+ and 1.2 if you need IE8 support</li>
-        <li>Directives with a <code class="language-none">restrict</code> type of "E" parallel custom elements</li>
-        <li>A custom tag such as <code class="language-html">&lt;ang-template for=&quot;ang-*&quot;&gt;</code> can stamp out your templates</li>
-        <li>A bootloader can call <code class="language-javascript">angular.bootstrap</code> on page load</li>
-        <li>The <code class="language-javascript">$transclude</code> function can give you access to the original content in your directive</li>
-      </ul>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>AngularJS Carousel Markup</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="1"><code class="language-html">
         &lt;ang-carousel ang-component&gt;
           &lt;ang-carousel-item&gt;one&lt;/ang-carousel-item&gt;
@@ -660,24 +644,36 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Web Components in AngularJS</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Use 1.3+ for IE9+ and 1.2 if you need IE8 support</li>
+        <li>Directives with a <code class="language-none">restrict</code> type of "E" parallel custom elements</li>
+        <li>A custom tag such as <code class="language-html">&lt;ang-template for=&quot;ang-*&quot;&gt;</code> can stamp out your templates</li>
+        <li>A bootloader can call <code class="language-javascript">angular.bootstrap</code> on page load</li>
+        <li>The <code class="language-javascript">$transclude</code> function can give you access to the original content in your directive</li>
+      </ul>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/gutilo/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>AngularJS Implementation</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="1"><code class="language-html">
-        &lt;ang-template for=&quot;ang-carousel&quot;&gt;
-          &lt;-- ... --&gt;
-        &lt;/ang-template&gt;
+        &lt;ang-template for=&quot;ang-carousel&quot;&gt;&lt;-- ... --&gt;&lt;/ang-template&gt;
       </code></pre>
-      <pre data-line="2,3,8"><code class="language-javascript">
+      <pre data-line="2,3,6"><code class="language-javascript">
         angular.module(&apos;angCarousel&apos;, [])
         .directive(&apos;angCarousel&apos;, function () {
           var tmpl = document.querySelector(&apos;ang-template[for=&quot;ang-carousel&quot;]&apos;);
           return {
-            restrict: &apos;E&apos;,
-            transclude: true,
+            restrict: &apos;E&apos;, transclude: true,
             controller: function($scope, $transclude) {
               $transclude(function(originalNodes) {
-                // ...
               });
               // ...
             }
@@ -706,23 +702,9 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
-      <h2>Web Components in Polymer</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>Evergreen browsers only (IE 10+)</li>
-        <li><code class="language-html">&lt;polymer-element name=&quot;*&quot; noscript&gt;</code> defines a custom element</li>
-        <li>All <code class="language-html">&lt;script&gt;</code> and <code class="language-html">&lt;style&gt;</code> tags are restricted in scope</li>
-        <li>Heavily leverages polyfilled APIs (Shadow DOM, etc)</li>
-    </article>
-    <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>Polymer Carousel Markup</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre><code class="language-html">
         &lt;p-carousel&gt;
           &lt;p-carousel-item&gt;one&lt;/p-carousel-item&gt;
@@ -736,9 +718,23 @@ Authors: Eric Bidelman <ebidel@gmail.com>
 
   <slide>
     <hgroup>
+      <h2>Web Components in Polymer</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Evergreen browsers only (IE 10+)</li>
+        <li><code class="language-html">&lt;polymer-element name=&quot;*&quot; noscript&gt;</code> defines a custom element</li>
+        <li>All <code class="language-html">&lt;script&gt;</code> and <code class="language-html">&lt;style&gt;</code> tags are restricted in scope</li>
+        <li>Heavily leverages polyfilled APIs (Shadow DOM, etc)</li>
+    </article>
+    <footer class="source"><a href="http://jsbin.com/zitur/latest/">view live example on jsbin</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Polymer Implementation</h2>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre data-line="1,3,10"><code class="language-html">
         &lt;polymer-element name=&quot;p-carousel&quot; noscript&gt;
           &lt;template&gt;
