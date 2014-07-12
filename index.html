@@ -79,8 +79,8 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     <article>
       <ul class="build">
         <li>A W3C spec sing-a-long</li>
-        <li>A soapbox rant on the removal of the &lt;blink&gt; tag</li>
-        <li>Dancing</li>
+        <li>A soapbox rant on the abuse of -webkit prefixes</li>
+        <li>Dancing. Definitely no dancing</li>
       </ul>
     </article>
   </slide>
@@ -106,6 +106,10 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       </section>
     </aside>
     <footer class="source">Additional resources available in the speaker notes. Just press "P".</footer>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/hands_raised.jpg)">
+    <footer class="source a11y">hands raised prompting for questions to come during the presentation <cite><a href="http://pixabay.com/p-220163/">http://pixabay.com/p-220163/</a></cite></footer>
   </slide>
 
   <slide class="segue dark nobackground">
@@ -259,15 +263,28 @@ Authors: Eric Bidelman <ebidel@gmail.com>
       <pre><code class="language-html">
         &lt;local-storage id=&quot;storage&quot; name=&quot;my-namespace&quot;&gt;&lt;/local-storage&gt;
         &lt;todo-database id=&quot;model&quot; storageId=&quot;storage&quot;&gt;&lt;/todo-database&gt;
-        &lt;todos-app modelId=&quot;model&quot;&gt;
+        &lt;todo-items modelId=&quot;model&quot;&gt;
           &lt;todo-item&gt;A todo&lt;/todo-item&gt;
           &lt;todo-item completed&gt;A completed item&lt;/todo-item&gt;
-        &lt;/todos-app&gt;
+        &lt;/todo-items&gt;
       </code></pre>
     </article>
     <aside class="note">
       <section>
-        <p>Where the infamous TodoMVC app can be reduced down to its obvious pieces</p>
+        <p>Where the well-known TodoMVC app can be reduced down to its obvious pieces</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <article class="flexbox vleft">
+      <pre><code class="language-html">
+        &lt;todo-list id=&quot;my-todos&quot;&gt;&lt;/todo-list&gt;
+      </code></pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p>and reduce it down to this</p>
       </section>
     </aside>
   </slide>
@@ -281,7 +298,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         <li>Semantics</li>
         <li>Encapsulation</li>
         <li>Configuration</li>
-        <li>Already DOM Friendly</li>
+        <li>DOM Friendly APIs</li>
       </ul>
     </article>
   </slide>
@@ -310,7 +327,7 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </article>
     <aside class="note">
       <section>
-        <p>By the W3C</p>
+        <p>It was introduced by the W3C</p>
       </section>
     </aside>
   </slide>
@@ -338,6 +355,20 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         Dimitri Glazkov<br>
         W3C Specification Co-Author
       </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Who Wouldn't Want</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Semantics</li>
+        <li>Encapsulation</li>
+        <li>Configuration</li>
+        <li>DOM Friendly APIs</li>
+      </ul>
     </article>
   </slide>
 
